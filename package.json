@@ -1,0 +1,15 @@
+{
+  "name": "iyzipay-node",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nx/js": "v17.2.5",
+    "nx": "v17.2.5"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
