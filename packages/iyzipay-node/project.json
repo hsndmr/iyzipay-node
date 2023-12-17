@@ -1,0 +1,35 @@
+{
+  "name": "iyzipay-node",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/iyzipay-node/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/iyzipay-node",
+        "tsConfig": "packages/iyzipay-node/tsconfig.lib.json",
+        "packageJson": "packages/iyzipay-node/package.json",
+        "main": "packages/iyzipay-node/src/index.ts",
+        "assets": ["packages/iyzipay-node/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs iyzipay-node {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/iyzipay-node/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
