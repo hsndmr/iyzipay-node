@@ -9,27 +9,27 @@ describe('Request', () => {
 
   it('should set and get locale', () => {
     // Arrange
-    request.locale = 'en-US';
+    request.setLocale('en-US');
 
     // Act & Assert
-    expect(request.locale).toBe('en-US');
+    expect(request.getLocale()).toBe('en-US');
   });
 
   it('should set and get conversationId', () => {
     // Arrange
-    request.conversationId = '123456';
+    request.setConversationId('123456');
 
     // Act & Assert
-    expect(request.conversationId).toBe('123456');
+    expect(request.getConversationId()).toBe('123456');
   });
 
   it('should correctly create JSON object', () => {
     // Arrange
-    request.locale = 'en-US';
-    request.conversationId = '123456';
+    request.setLocale('en-US');
+    request.setConversationId('123456');
 
     // Act
-    const jsonObject = request.getJsonObject();
+    const jsonObject = request.getRequestData();
 
     // Assert
     expect(jsonObject).toEqual({
@@ -40,8 +40,8 @@ describe('Request', () => {
 
   it('should correctly create PKI request string', () => {
     // Arrange
-    request.locale = 'en-US';
-    request.conversationId = '123456';
+    request.setLocale('en-US');
+    request.setConversationId('123456');
 
     // Act
     const requestString = request.toPKIRequestString();

@@ -116,18 +116,22 @@ export class RequestStringBuilder {
   ): string | false {
     let stringQuery = '';
 
-    stringQuery += request.conversationId
-      ? `?conversationId=${request.conversationId}`
+    stringQuery += request.getConversationId()
+      ? `?conversationId=${request.getConversationId()}`
       : '';
-    stringQuery += request.locale ? `&locale=${request.locale}` : '';
+    stringQuery += request.getLocale() ? `&locale=${request.getLocale()}` : '';
 
     switch (type) {
       case 'defaultParams':
-        if (request.conversationId) {
-          stringQuery = `?conversationId=${request.conversationId}`;
-          stringQuery += request.locale ? `&locale=${request.locale}` : '';
+        if (request.getConversationId()) {
+          stringQuery = `?conversationId=${request.getConversationId()}`;
+          stringQuery += request.getLocale()
+            ? `&locale=${request.getLocale()}`
+            : '';
         } else {
-          stringQuery += request.locale ? `&locale=${request.locale}` : '';
+          stringQuery += request.getLocale()
+            ? `&locale=${request.getLocale()}`
+            : '';
         }
 
         break;
