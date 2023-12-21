@@ -9,25 +9,25 @@ describe('Options', () => {
 
   it('should set and get apiKey', () => {
     // Arrange
-    options.apiKey = 'testApiKey';
+    options.setApiKey('testApiKey');
 
     // Act & Assert
-    expect(options.apiKey).toBe('testApiKey');
+    expect(options.getApiKey()).toBe('testApiKey');
   });
 
   it('should set and get secretKey', () => {
     // Arrange
-    options.secretKey = 'testSecretKey';
+    options.setSecretKey('testSecretKey');
 
     // Act & Assert
-    expect(options.secretKey).toBe('testSecretKey');
+    expect(options.getSecretKey()).toBe('testSecretKey');
   });
 
   it('should set and get baseUrl', () => {
     // Arrange
-    options.baseUrl = 'http://testbaseurl.com';
+    options.setBaseUrl('http://testbaseurl.com');
 
     // Act & Assert
-    expect(options.baseUrl).toBe('http://testbaseurl.com');
+    expect(options.getBaseUrl()).toBe('http://testbaseurl.com');
   });
 });

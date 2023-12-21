@@ -1,29 +1,29 @@
 export class Options {
-  private _apiKey: string;
-  private _secretKey: string;
-  private _baseUrl: string;
+  private apiKey: string;
+  private secretKey: string;
+  private baseUrl: string;
 
-  public get apiKey(): string {
-    return this._apiKey;
+  public getApiKey(): string {
+    return this.apiKey;
   }
 
-  public set apiKey(value: string) {
-    this._apiKey = value;
+  public setApiKey(value: string) {
+    this.apiKey = value;
   }
 
-  public get secretKey(): string {
-    return this._secretKey;
+  public getSecretKey(): string {
+    return this.secretKey;
   }
 
-  public set secretKey(value: string) {
-    this._secretKey = value;
+  public setSecretKey(value: string) {
+    this.secretKey = value;
   }
 
-  public get baseUrl(): string {
-    return this._baseUrl;
+  public getBaseUrl(): string {
+    return this.baseUrl;
   }
 
-  public set baseUrl(value: string) {
-    this._baseUrl = value;
+  public setBaseUrl(value: string) {
+    this.baseUrl = value;
   }
 }
