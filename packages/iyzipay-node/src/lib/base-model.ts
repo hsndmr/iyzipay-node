@@ -1,19 +1,15 @@
-import { JsonBuilder } from './json-builder';
-import { JsonConvertible, JsonObject } from './json-convertbile.interface';
+import { FlexibleData } from './flexible-data.interface';
+import { RequestDataSupplier } from './request-data-supplier.interface';
 import { RequestStringConvertible } from './request-string-convertible.interface';
 
 export abstract class BaseModel
-  implements RequestStringConvertible, JsonConvertible
+  implements RequestStringConvertible, RequestDataSupplier
 {
-  public toJsonString(): string {
-    return JsonBuilder.jsonEncode(this.getJsonObject());
-  }
-
   public toPKIRequestString(): string {
     return '';
   }
 
-  public getJsonObject(): JsonObject {
+  public getRequestData(): FlexibleData {
     return {};
   }
 }
