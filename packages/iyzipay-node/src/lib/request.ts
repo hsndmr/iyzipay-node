@@ -1,6 +1,6 @@
 import { BaseModel } from './base-model';
-import { JsonBuilder } from './json-builder';
-import { JsonObject } from './json-convertbile.interface';
+import { FlexibleData } from './flexible-data.interface';
+import { RequestDataBuilder } from './request-data-builder';
 import { RequestStringBuilder } from './request-string-builder';
 
 export class Request extends BaseModel {
@@ -23,11 +23,11 @@ export class Request extends BaseModel {
     this._conversationId = value;
   }
 
-  public getJsonObject(): JsonObject {
-    return JsonBuilder.create()
+  public getRequestData(): FlexibleData {
+    return RequestDataBuilder.create()
       .add('locale', this.locale)
       .add('conversationId', this.conversationId)
-      .getObject();
+      .get();
   }
 
   public toPKIRequestString(): string {
