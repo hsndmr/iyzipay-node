@@ -6,3 +6,4 @@ export * from './request-string-builder';
 export * from './options';
 export * from './request-string-convertible.interface';
 export * from './utils';
+export * from './models';
