@@ -57,16 +57,18 @@ export class RequestStringBuilder {
 
   public appendArray(
     key: string,
-    array?: (RequestStringConvertible | null)[]
+    array?: (RequestStringConvertible | null | string)[]
   ): this {
     if (isNotNullOrUndefined(array)) {
       let appendedValue = '';
       array.forEach((value) => {
-        appendedValue += isRequestStringConvertible(value)
-          ? value.toPKIRequestString()
-          : value;
+        if (value !== null) {
+          appendedValue += isRequestStringConvertible(value)
+            ? (value as RequestStringConvertible).toPKIRequestString()
+            : (value as string);
 
-        appendedValue += ', ';
+          appendedValue += ', ';
+        }
       });
 
       this.appendKeyValueArray(key, appendedValue);
