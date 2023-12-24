@@ -49,7 +49,7 @@ export class Address extends BaseModel {
     this.country = country;
   }
 
-  public getJsonObject() {
+  public getRequestData() {
     return RequestDataBuilder.create()
       .add('address', this.getAddress())
       .add('zipCode', this.getZipCode())
