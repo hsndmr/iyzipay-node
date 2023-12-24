@@ -6,7 +6,7 @@ import { Address } from '../models/address';
 import { BasketItem } from '../models/basket-item';
 import { FlexibleData } from '../flexible-data.interface';
 import { RequestDataBuilder } from '../request-data-builder';
-import { Currency, PaymentChannel } from '../models';
+import { Currency, PaymentChannel, PaymentGroup } from '../models';
 
 export class CreatePaymentRequest extends Request {
   private price: string;
@@ -14,7 +14,7 @@ export class CreatePaymentRequest extends Request {
   private installment: number;
   private paymentChannel: PaymentChannel;
   private basketId: string;
-  private paymentGroup: string;
+  private paymentGroup: PaymentGroup;
   private reward: string;
   private paymentCard: PaymentCard;
   private buyer: Buyer;
@@ -72,7 +72,7 @@ export class CreatePaymentRequest extends Request {
     return this.paymentGroup;
   }
 
-  public setPaymentGroup(paymentGroup: string): void {
+  public setPaymentGroup(paymentGroup: PaymentGroup): void {
     this.paymentGroup = paymentGroup;
   }
 
