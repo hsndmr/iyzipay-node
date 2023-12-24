@@ -77,7 +77,7 @@ export class BasketItem extends BaseModel {
     this.subMerchantPrice = subMerchantPrice;
   }
 
-  public getJsonObject(): FlexibleData {
+  public getRequestData(): FlexibleData {
     return RequestDataBuilder.create()
       .add('id', this.getId())
       .add('price', this.getPrice())
