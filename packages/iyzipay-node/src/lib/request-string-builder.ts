@@ -6,6 +6,14 @@ import {
 } from './request-string-convertible.interface';
 import { isNotNullOrUndefined } from './utils';
 
+type Value =
+  | string
+  | RequestStringConvertible
+  | null
+  | boolean
+  | number
+  | undefined;
+
 export class RequestStringBuilder {
   private requestString: string;
 
@@ -34,12 +42,10 @@ export class RequestStringBuilder {
 
   public append(
     key: string,
-    value?: string | RequestStringConvertible | null
+    value?: string | RequestStringConvertible | null | boolean | number
   ): this {
     if (isNotNullOrUndefined(value)) {
-      const formattedValue = isRequestStringConvertible(value)
-        ? (value as RequestStringConvertible).toPKIRequestString()
-        : (value as string);
+      const formattedValue = this.serializeForPKIRequest(value);
 
       this.appendKeyValue(key, formattedValue);
     }
@@ -55,17 +61,12 @@ export class RequestStringBuilder {
     return this;
   }
 
-  public appendArray(
-    key: string,
-    array?: (RequestStringConvertible | null | string)[]
-  ): this {
+  public appendArray(key: string, array?: Value[]): this {
     if (isNotNullOrUndefined(array)) {
       let appendedValue = '';
       array.forEach((value) => {
         if (value !== null) {
-          appendedValue += isRequestStringConvertible(value)
-            ? (value as RequestStringConvertible).toPKIRequestString()
-            : (value as string);
+          appendedValue += this.serializeForPKIRequest(value);
 
           appendedValue += ', ';
         }
@@ -109,6 +110,12 @@ export class RequestStringBuilder {
     this.appendPrefix();
 
     return this.requestString;
+  }
+
+  protected serializeForPKIRequest(value: Value): string {
+    return isRequestStringConvertible(value)
+      ? (value as RequestStringConvertible).toPKIRequestString()
+      : (value as Exclude<Value, RequestStringConvertible>).toString();
   }
 
   // TODO: This method is not finished yet. It should be completed.
