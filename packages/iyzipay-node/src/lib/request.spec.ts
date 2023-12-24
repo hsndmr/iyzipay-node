@@ -1,3 +1,4 @@
+import { Locale } from './models';
 import { Request } from './request';
 
 describe('Request', () => {
@@ -9,10 +10,10 @@ describe('Request', () => {
 
   it('should set and get locale', () => {
     // Arrange
-    request.setLocale('en-US');
+    request.setLocale(Locale.EN);
 
     // Act & Assert
-    expect(request.getLocale()).toBe('en-US');
+    expect(request.getLocale()).toBe(Locale.EN);
   });
 
   it('should set and get conversationId', () => {
@@ -25,7 +26,7 @@ describe('Request', () => {
 
   it('should correctly create JSON object', () => {
     // Arrange
-    request.setLocale('en-US');
+    request.setLocale(Locale.EN);
     request.setConversationId('123456');
 
     // Act
@@ -33,20 +34,20 @@ describe('Request', () => {
 
     // Assert
     expect(jsonObject).toEqual({
-      locale: 'en-US',
+      locale: Locale.EN,
       conversationId: '123456',
     });
   });
 
   it('should correctly create PKI request string', () => {
     // Arrange
-    request.setLocale('en-US');
+    request.setLocale(Locale.EN);
     request.setConversationId('123456');
 
     // Act
     const requestString = request.toPKIRequestString();
 
     // Assert
-    expect(requestString).toBe('[locale=en-US,conversationId=123456]');
+    expect(requestString).toBe('[locale=en,conversationId=123456]');
   });
 });

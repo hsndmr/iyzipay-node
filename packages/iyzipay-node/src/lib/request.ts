@@ -1,17 +1,18 @@
 import { BaseModel } from './base-model';
 import { FlexibleData } from './flexible-data.interface';
+import { Locale } from './models';
 import { RequestDataBuilder } from './request-data-builder';
 import { RequestStringBuilder } from './request-string-builder';
 
 export class Request extends BaseModel {
-  private locale?: string;
+  private locale?: Locale;
   private conversationId?: string;
 
   public getLocale(): string | undefined {
     return this.locale;
   }
 
-  public setLocale(value: string) {
+  public setLocale(value: Locale) {
     this.locale = value;
   }
 
