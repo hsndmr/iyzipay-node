@@ -6,6 +6,7 @@ import { Address } from '../models/address';
 import { BasketItem } from '../models/basket-item';
 import { FlexibleData } from '../flexible-data.interface';
 import { RequestDataBuilder } from '../request-data-builder';
+import { Currency } from '../models';
 
 export class CreatePaymentRequest extends Request {
   private price: string;
@@ -21,7 +22,7 @@ export class CreatePaymentRequest extends Request {
   private billingAddress: Address;
   private basketItems: BasketItem[];
   private paymentSource: string;
-  private currency: string;
+  private currency: Currency;
   private posOrderId: string;
   private connectorName: string;
   private plusInstallmentUsage: boolean;
@@ -131,11 +132,11 @@ export class CreatePaymentRequest extends Request {
     this.paymentSource = paymentSource;
   }
 
-  public getCurrency(): string {
+  public getCurrency(): Currency {
     return this.currency;
   }
 
-  public setCurrency(currency: string): void {
+  public setCurrency(currency: Currency): void {
     this.currency = currency;
   }
 
