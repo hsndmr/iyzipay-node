@@ -6,13 +6,13 @@ import { Address } from '../models/address';
 import { BasketItem } from '../models/basket-item';
 import { FlexibleData } from '../flexible-data.interface';
 import { RequestDataBuilder } from '../request-data-builder';
-import { Currency } from '../models';
+import { Currency, PaymentChannel } from '../models';
 
 export class CreatePaymentRequest extends Request {
   private price: string;
   private paidPrice: string;
   private installment: number;
-  private paymentChannel: string;
+  private paymentChannel: PaymentChannel;
   private basketId: string;
   private paymentGroup: string;
   private reward: string;
@@ -56,7 +56,7 @@ export class CreatePaymentRequest extends Request {
     return this.paymentChannel;
   }
 
-  public setPaymentChannel(paymentChannel: string): void {
+  public setPaymentChannel(paymentChannel: PaymentChannel): void {
     this.paymentChannel = paymentChannel;
   }
 
