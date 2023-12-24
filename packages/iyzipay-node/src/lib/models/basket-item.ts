@@ -2,6 +2,7 @@ import { BaseModel } from '../base-model';
 import { FlexibleData } from '../flexible-data.interface';
 import { RequestDataBuilder } from '../request-data-builder';
 import { RequestStringBuilder } from '../request-string-builder';
+import { BasketItemType } from './enums';
 
 export class BasketItem extends BaseModel {
   private id: string;
@@ -9,7 +10,7 @@ export class BasketItem extends BaseModel {
   private name: string;
   private category1: string;
   private category2: string;
-  private itemType: string;
+  private itemType: BasketItemType;
   private subMerchantKey: string;
   private subMerchantPrice: string;
 
@@ -53,11 +54,11 @@ export class BasketItem extends BaseModel {
     this.category2 = category2;
   }
 
-  public getItemType(): string {
+  public getItemType(): BasketItemType {
     return this.itemType;
   }
 
-  public setItemType(itemType: string): void {
+  public setItemType(itemType: BasketItemType): void {
     this.itemType = itemType;
   }
 
