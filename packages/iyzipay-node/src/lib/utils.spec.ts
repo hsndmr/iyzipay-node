@@ -1,4 +1,4 @@
-import { isNotNullOrUndefined } from './utils';
+import { isNotNullOrUndefined, substr } from './utils';
 
 describe('Utils', () => {
   describe('isNotNullOrUndefined', () => {
@@ -19,6 +19,37 @@ describe('Utils', () => {
     it('should return false for undefined', () => {
       // Arrange & Act & Assert
       expect(isNotNullOrUndefined(undefined)).toBeFalsy();
+    });
+  });
+  describe('substr function', () => {
+    it('should extract a substring from start to specific length', () => {
+      // Arrange & Act & Assert
+      expect(substr('Hello, world!', 0, 5)).toBe('Hello');
+    });
+
+    it('should handle negative start index', () => {
+      // Arrange & Act & Assert
+      expect(substr('Hello, world!', -6)).toBe('world!');
+    });
+
+    it('should handle negative length', () => {
+      // Arrange & Act & Assert
+      expect(substr('Hello, world!', 7, -2)).toBe('worl');
+    });
+
+    it('should extract till the end if length is not provided', () => {
+      // Arrange & Act & Assert
+      expect(substr('Hello, world!', 7)).toBe('world!');
+    });
+
+    it('should return an empty string for out-of-range index', () => {
+      // Arrange & Act & Assert
+      expect(substr('Hello, world!', 20)).toBe('');
+    });
+
+    it('should return an empty string for excessive negative length', () => {
+      // Arrange & Act & Assert
+      expect(substr('Hello, world!', 5, -20)).toBe('');
     });
   });
 });
