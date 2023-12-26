@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { IyzipayHttpClient } from './iyzipay-http-client';
 import { Options } from './options';
+import { Request } from './request';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -130,6 +131,70 @@ describe('IyzipayHttpClient', () => {
       // Act & Assert
       expect(client.getOptions().getBaseUrl()).toEqual(
         'https://api.newexample.com'
+      );
+    });
+  });
+
+  describe('Http Headers Generation', () => {
+    it('should generate correct headers', () => {
+      // Arrange
+      const request = new Request();
+
+      // Act
+      const headers = client.getHttpHeaders(request);
+
+      // Assert
+      expect(headers).toContain('Accept: application/json');
+      expect(headers).toContain('Content-type: application/json');
+      expect(headers[2]).toMatch('Authorization: IYZWS testApiKey');
+      expect(headers[3]).toMatch('x-iyzi-rnd:');
+    });
+
+    it('should generate correct headers v2', () => {
+      // Arrange
+      const request = new Request();
+
+      // Act
+      const headers = client.getHttpHeadersV2('uri', request);
+
+      // Assert
+      expect(headers).toContain('Accept: application/json');
+      expect(headers).toContain('Content-type: application/json');
+      expect(headers[2]).toMatch('Authorization: IYZWSv2');
+    });
+  });
+
+  describe('Authorization String Generation', () => {
+    const request = new Request();
+
+    it('should generate correct Authorization string', () => {
+      // Arrange
+      const rnd = 'randomString';
+
+      // Act
+      const authString = client.prepareAuthorizationString(request, rnd);
+
+      // Assert
+      expect(authString).toEqual(
+        'IYZWS testApiKey:CQMLmtpLvadhF8ObJxhudvO+z6Q='
+      );
+    });
+
+    it('should generate correct Authorization string V2', () => {
+      // Arrange
+      const rnd = 'randomString';
+      const uri = '/test';
+
+      // Act
+      const authStringV2 = client.prepareAuthorizationStringV2(
+        uri,
+        request,
+        rnd
+      );
+
+      // Assert
+      expect(authStringV2).toEqual(
+        'IYZWSv2 YXBpS2V5OnRlc3RBcGlLZXkmcmFuZG9tS2V5OnJhbmRvbVN0cmluZyZzaWduYXR1cmU6MDgwODY2YjdjYzYyZDFmNTUwNTExOGMxMjI3ZWI5MWRmNGE5YmVlYWI4OGU2NTcyY2RjYWI2YzRmMThlNWNhMg=='
       );
     });
   });

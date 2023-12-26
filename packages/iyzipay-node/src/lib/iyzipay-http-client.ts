@@ -1,5 +1,8 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from 'axios';
 import { Options } from './options';
+import { HashGenerator } from './hash-generator';
+import { Request } from './request';
+import { IyziAuthV2Generator } from './iyzi-auth-v2-generator';
 
 export class IyzipayHttpClient {
   private axiosInstance: AxiosInstance;
@@ -49,5 +52,61 @@ export class IyzipayHttpClient {
     config?: AxiosRequestConfig<D>
   ): Promise<R> {
     return this.axiosInstance.delete<T, R, D>(url, config);
+  }
+
+  getHttpHeaders(request: Request): string[] {
+    const header: string[] = [
+      'Accept: application/json',
+      'Content-type: application/json',
+    ];
+
+    const rnd = Math.random().toString(36).substring(2, 15);
+    header.push(
+      `Authorization: ${this.prepareAuthorizationString(request, rnd)}`
+    );
+    header.push(`x-iyzi-rnd: ${rnd}`);
+
+    return header;
+  }
+
+  getHttpHeadersV2(uri: string, request: Request): string[] {
+    const header: string[] = [
+      'Accept: application/json',
+      'Content-type: application/json',
+    ];
+
+    const rnd = Math.random().toString(36).substring(2, 15);
+    header.push(
+      `Authorization: ${this.prepareAuthorizationStringV2(uri, request, rnd)}`
+    );
+
+    return header;
+  }
+
+  prepareAuthorizationString(request: Request, rnd: string): string {
+    const authContent = HashGenerator.generateHash(
+      this.options.getApiKey(),
+      this.options.getSecretKey(),
+      rnd,
+      request
+    );
+
+    return `IYZWS ${this.options.getApiKey()}:${authContent}`;
+  }
+
+  prepareAuthorizationStringV2(
+    uri: string,
+    request: Request | null,
+    rnd: string
+  ): string {
+    let hash = IyziAuthV2Generator.generateAuthContent(
+      uri,
+      this.options.getApiKey(),
+      this.options.getSecretKey(),
+      rnd,
+      request
+    );
+
+    return `IYZWSv2 ${hash}`;
   }
 }
