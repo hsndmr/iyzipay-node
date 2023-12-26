@@ -12,4 +12,8 @@ export abstract class BaseModel
   public getRequestData(): FlexibleData {
     return {};
   }
+
+  public toRequestDataString(): string {
+    return JSON.stringify(this.getRequestData());
+  }
 }
