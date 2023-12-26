@@ -1,6 +1,6 @@
 import { ApiResource } from './api-resource';
 
-class IyzipayResource extends ApiResource {
+export class IyzipayResource extends ApiResource {
   private status: string;
   private errorCode: string;
   private errorMessage: string;
