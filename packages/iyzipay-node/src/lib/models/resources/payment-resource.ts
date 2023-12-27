@@ -1,4 +1,4 @@
-import { IyzipayResource } from '../../iyzipay-resource';
+import { IyzipayResource } from './iyzipay-resource';
 
 export class PaymentResource extends IyzipayResource {
   private price: string;

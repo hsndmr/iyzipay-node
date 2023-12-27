@@ -1,4 +1,4 @@
-import { ApiResource } from './api-resource';
+import { ApiResource } from '../../api-resource';
 
 export class IyzipayResource extends ApiResource {
   private status: string;
