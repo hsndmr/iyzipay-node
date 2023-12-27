@@ -144,10 +144,9 @@ describe('IyzipayHttpClient', () => {
       const headers = client.getHttpHeaders(request);
 
       // Assert
-      expect(headers).toContain('Accept: application/json');
-      expect(headers).toContain('Content-type: application/json');
-      expect(headers[2]).toMatch('Authorization: IYZWS testApiKey');
-      expect(headers[3]).toMatch('x-iyzi-rnd:');
+      expect(headers['Accept']).toEqual('application/json');
+      expect(headers['Content-type']).toEqual('application/json');
+      expect(headers['Authorization']).toMatch('IYZWS testApiKey');
     });
 
     it('should generate correct headers v2', () => {

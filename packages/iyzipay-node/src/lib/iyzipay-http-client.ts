@@ -54,19 +54,20 @@ export class IyzipayHttpClient {
     return this.axiosInstance.delete<T, R, D>(url, config);
   }
 
-  getHttpHeaders(request: Request): string[] {
-    const header: string[] = [
-      'Accept: application/json',
-      'Content-type: application/json',
-    ];
-
+  getHttpHeaders(request: Request): {
+    Accept: string;
+    'Content-type': string;
+    Authorization: string;
+    'x-iyzi-rnd': string;
+  } {
     const rnd = Math.random().toString(36).substring(2, 15);
-    header.push(
-      `Authorization: ${this.prepareAuthorizationString(request, rnd)}`
-    );
-    header.push(`x-iyzi-rnd: ${rnd}`);
 
-    return header;
+    return {
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+      Authorization: this.prepareAuthorizationString(request, rnd),
+      'x-iyzi-rnd': rnd,
+    };
   }
 
   getHttpHeadersV2(
