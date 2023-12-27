@@ -3,6 +3,7 @@ import { Options } from './options';
 import { HashGenerator } from './hash-generator';
 import { Request } from './request';
 import { IyziAuthV2Generator } from './iyzi-auth-v2-generator';
+import { uniqid } from './utils';
 
 export class IyzipayHttpClient {
   private axiosInstance: AxiosInstance;
@@ -60,7 +61,7 @@ export class IyzipayHttpClient {
     Authorization: string;
     'x-iyzi-rnd': string;
   } {
-    const rnd = Math.random().toString(36).substring(2, 15);
+    const rnd = uniqid();
 
     return {
       Accept: 'application/json',
@@ -78,7 +79,7 @@ export class IyzipayHttpClient {
     'Content-type': string;
     Authorization: string;
   } {
-    const rnd = Math.random().toString(36).substring(2, 15);
+    const rnd = uniqid();
 
     return {
       Accept: 'application/json',
