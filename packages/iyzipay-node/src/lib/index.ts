@@ -8,3 +8,4 @@ export * from './request-string-convertible.interface';
 export * from './utils';
 export * from './models';
 export * from './requests';
+export * from './iyzipay-http-client';
