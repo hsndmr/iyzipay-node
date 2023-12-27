@@ -1,11 +1,11 @@
 export class ApiResource {
-  private rawResult: string;
+  private rawResult?: string;
 
-  public getRawResult(): string {
+  public getRawResult(): string | undefined {
     return this.rawResult;
   }
 
-  public setRawResult(rawResult: string): void {
+  public setRawResult(rawResult?: string): void {
     this.rawResult = rawResult;
   }
 }
