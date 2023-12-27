@@ -69,18 +69,21 @@ export class IyzipayHttpClient {
     return header;
   }
 
-  getHttpHeadersV2(uri: string, request: Request): string[] {
-    const header: string[] = [
-      'Accept: application/json',
-      'Content-type: application/json',
-    ];
-
+  getHttpHeadersV2(
+    uri: string,
+    request: Request
+  ): {
+    Accept: string;
+    'Content-type': string;
+    Authorization: string;
+  } {
     const rnd = Math.random().toString(36).substring(2, 15);
-    header.push(
-      `Authorization: ${this.prepareAuthorizationStringV2(uri, request, rnd)}`
-    );
 
-    return header;
+    return {
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+      Authorization: this.prepareAuthorizationStringV2(uri, request, rnd),
+    };
   }
 
   prepareAuthorizationString(request: Request, rnd: string): string {

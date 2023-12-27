@@ -158,9 +158,9 @@ describe('IyzipayHttpClient', () => {
       const headers = client.getHttpHeadersV2('uri', request);
 
       // Assert
-      expect(headers).toContain('Accept: application/json');
-      expect(headers).toContain('Content-type: application/json');
-      expect(headers[2]).toMatch('Authorization: IYZWSv2');
+      expect(headers['Accept']).toEqual('application/json');
+      expect(headers['Content-type']).toEqual('application/json');
+      expect(headers['Authorization']).toMatch('IYZWSv2');
     });
   });
 
