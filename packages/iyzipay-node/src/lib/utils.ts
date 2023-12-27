@@ -21,3 +21,11 @@ export function substr(str: string, start: number, length?: number): string {
 
   return str.substring(adjustedStart, adjustedStart + adjustedLength);
 }
+
+export function uniqid(prefix: string = ''): string {
+  const now = Date.now();
+
+  const random = Math.floor(Math.random() * 1000000);
+
+  return prefix + now.toString(16) + random.toString(16);
+}

@@ -1,4 +1,4 @@
-import { isNotNullOrUndefined, substr } from './utils';
+import { isNotNullOrUndefined, substr, uniqid } from './utils';
 
 describe('Utils', () => {
   describe('isNotNullOrUndefined', () => {
@@ -51,5 +51,23 @@ describe('Utils', () => {
       // Arrange & Act & Assert
       expect(substr('Hello, world!', 5, -20)).toBe('');
     });
+  });
+});
+
+describe('uniqid function', () => {
+  it('should generate a unique ID', () => {
+    // Arrange & Act & Assert
+    expect(uniqid()).toHaveLength(16);
+  });
+
+  it('should apply the optional prefix correctly', () => {
+    // Arrange
+    const prefix = 'test_';
+
+    // Act
+    const id = uniqid(prefix);
+
+    // Assert
+    expect(id.startsWith(prefix)).toBeTruthy();
   });
 });
