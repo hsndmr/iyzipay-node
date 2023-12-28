@@ -1,8 +1,6 @@
-export type ResponseData =
-  | {
-      [key: string]: any;
-    }
-  | [{ [key: string]: any }];
+export type ResponseData = {
+  [key: string]: any;
+};
 
 export class ResponseDataManager {
   private data: ResponseData;
@@ -20,6 +18,6 @@ export class ResponseDataManager {
   }
 
   public get<T>(key: string): T | undefined {
-    return this.data[key];
+    return this.data[key] ?? undefined;
   }
 }
