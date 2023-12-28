@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from 'axios';
 import { Options } from './options';
 import { HashGenerator } from './hash-generator';
@@ -104,7 +105,7 @@ export class IyzipayHttpClient {
     request: Request | null,
     rnd: string
   ): string {
-    let hash = IyziAuthV2Generator.generateAuthContent(
+    const hash = IyziAuthV2Generator.generateAuthContent(
       uri,
       this.options.getApiKey(),
       this.options.getSecretKey(),
