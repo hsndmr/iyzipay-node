@@ -1,11 +1,13 @@
-export class ApiResource {
-  private rawResult?: string;
+import { ResponseData } from './response-data-manager';
 
-  public getRawResult(): string | undefined {
+export class ApiResource {
+  private rawResult?: ResponseData;
+
+  public getRawResult(): ResponseData | undefined {
     return this.rawResult;
   }
 
-  public setRawResult(rawResult?: string): void {
-    this.rawResult = rawResult;
+  public setRawResult(ResponseData?: ResponseData): void {
+    this.rawResult = ResponseData;
   }
 }
