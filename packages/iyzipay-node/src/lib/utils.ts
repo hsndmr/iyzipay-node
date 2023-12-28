@@ -6,13 +6,13 @@ export function isNotNullOrUndefined<T extends unknown>(
 }
 
 export function substr(str: string, start: number, length?: number): string {
-  let adjustedStart = start < 0 ? str.length + start : start;
+  const adjustedStart = start < 0 ? str.length + start : start;
 
   if (length === undefined) {
     return str.substring(adjustedStart);
   }
 
-  let adjustedLength =
+  const adjustedLength =
     length < 0 ? str.length + length - adjustedStart : length;
 
   if (adjustedLength < 0) {
