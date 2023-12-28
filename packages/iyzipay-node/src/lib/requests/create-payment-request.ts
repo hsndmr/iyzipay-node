@@ -212,7 +212,7 @@ export class CreatePaymentRequest extends Request {
   public toPKIRequestString(): string {
     return RequestStringBuilder.create()
       .appendSuper(super.toPKIRequestString())
-      .append('price', this.price)
+      .appendPrice('price', this.price)
       .append('paidPrice', this.paidPrice)
       .append('installment', this.installment)
       .append('paymentChannel', this.paymentChannel)
