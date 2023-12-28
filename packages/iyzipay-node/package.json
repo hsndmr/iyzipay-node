@@ -1,7 +1,10 @@
 {
   "name": "@demirjs/iyzipay-node",
   "version": "0.0.1",
-  "devDependencies": {
+  "peerDependencies": {
+    "axios": "^1.6.3"
+  },
+  "dependencies": {
     "tslib": "^2.6.2"
   }
 }
