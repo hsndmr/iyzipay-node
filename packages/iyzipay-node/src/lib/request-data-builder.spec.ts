@@ -34,6 +34,7 @@ describe('RequestDataBuilder', () => {
     // Arrange
     const mockSupplier = {
       getRequestData: jest.fn().mockReturnValue({ key: 'value' }),
+      toRequestDataString: () => 'mockSupplier',
     };
 
     const builder = RequestDataBuilder.create().add(
@@ -50,6 +51,7 @@ describe('RequestDataBuilder', () => {
     // Arrange
     const mockSupplier = {
       getRequestData: jest.fn().mockReturnValue({ key: 'value' }),
+      toRequestDataString: () => 'mockSupplier',
     };
 
     const builder = RequestDataBuilder.create().addArray('arrayKey', [
