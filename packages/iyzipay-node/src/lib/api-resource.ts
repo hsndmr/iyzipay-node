@@ -1,13 +1,13 @@
 import { ResponseData } from './response-data-manager';
 
 export class ApiResource {
-  private rawResult?: ResponseData;
+  private responseData?: ResponseData;
 
-  public getRawResult(): ResponseData | undefined {
-    return this.rawResult;
+  public getResponseData(): ResponseData | undefined {
+    return this.responseData;
   }
 
-  public setRawResult(ResponseData?: ResponseData): void {
-    this.rawResult = ResponseData;
+  public setResponseData(ResponseData?: ResponseData): void {
+    this.responseData = ResponseData;
   }
 }

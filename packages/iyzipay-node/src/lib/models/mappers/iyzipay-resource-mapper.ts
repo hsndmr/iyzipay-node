@@ -25,7 +25,7 @@ export class IyzipayResourceMapper {
     resource.setErrorGroup(responseDataManager.get('errorGroup'));
     resource.setLocale(responseDataManager.get('locale'));
     resource.setSystemTime(responseDataManager.get('systemTime'));
-    resource.setRawResult(responseData);
+    resource.setResponseData(responseData);
 
     return resource;
   }
