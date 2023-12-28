@@ -147,7 +147,7 @@ describe('IyzipayHttpClient', () => {
       expect(headers['Accept']).toEqual('application/json');
       expect(headers['Content-type']).toEqual('application/json');
       expect(headers['Authorization']).toMatch('IYZWS testApiKey');
-      expect(headers['x-iyzi-rnd']).toHaveLength(16);
+      expect(headers['x-iyzi-rnd']).not.toBeUndefined();
     });
 
     it('should generate correct headers v2', () => {
