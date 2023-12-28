@@ -56,7 +56,7 @@ describe('Utils', () => {
   describe('uniqid function', () => {
     it('should generate a unique ID', () => {
       // Arrange & Act & Assert
-      expect(uniqid()).toHaveLength(16);
+      expect(uniqid()).not.toBe(uniqid());
     });
 
     it('should apply the optional prefix correctly', () => {
