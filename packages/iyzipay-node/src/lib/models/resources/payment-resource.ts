@@ -1,3 +1,4 @@
+import { PaymentItem } from '../payment-item';
 import { IyzipayResource } from './iyzipay-resource';
 
 export class PaymentResource extends IyzipayResource {
@@ -19,7 +20,7 @@ export class PaymentResource extends IyzipayResource {
   private cardUserKey?: string;
   private binNumber?: string;
   private basketId?: string;
-  private paymentItems?: any[];
+  private paymentItems?: PaymentItem[];
   private connectorName?: string;
   private authCode?: string;
   private phase?: string;
@@ -172,11 +173,12 @@ export class PaymentResource extends IyzipayResource {
     this.basketId = basketId;
   }
 
-  public getPaymentItems(): any[] | undefined {
+  public getPaymentItems(): PaymentItem[] | undefined {
     return this.paymentItems;
   }
 
-  public setPaymentItems(paymentItems?: any[]): void {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public setPaymentItems(paymentItems?: PaymentItem[]): void {
     this.paymentItems = paymentItems;
   }
 
