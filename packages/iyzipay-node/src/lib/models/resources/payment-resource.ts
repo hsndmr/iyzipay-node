@@ -1,222 +1,222 @@
 import { IyzipayResource } from './iyzipay-resource';
 
 export class PaymentResource extends IyzipayResource {
-  private price: string;
-  private paidPrice: string;
-  private installment: number;
-  private currency: string;
-  private paymentId: string;
-  private paymentStatus: string;
-  private fraudStatus: number;
-  private merchantCommissionRate: number;
-  private merchantCommissionRateAmount: number;
-  private iyziCommissionRateAmount: number;
-  private iyziCommissionFee: number;
-  private cardType: string;
-  private cardAssociation: string;
-  private cardFamily: string;
-  private cardToken: string;
-  private cardUserKey: string;
-  private binNumber: string;
-  private basketId: string;
-  private paymentItems: any[];
-  private connectorName: string;
-  private authCode: string;
-  private phase: string;
-  private lastFourDigits: string;
-  private posOrderId: string;
+  private price?: string;
+  private paidPrice?: string;
+  private installment?: number;
+  private currency?: string;
+  private paymentId?: string;
+  private paymentStatus?: string;
+  private fraudStatus?: number;
+  private merchantCommissionRate?: number;
+  private merchantCommissionRateAmount?: number;
+  private iyziCommissionRateAmount?: number;
+  private iyziCommissionFee?: number;
+  private cardType?: string;
+  private cardAssociation?: string;
+  private cardFamily?: string;
+  private cardToken?: string;
+  private cardUserKey?: string;
+  private binNumber?: string;
+  private basketId?: string;
+  private paymentItems?: any[];
+  private connectorName?: string;
+  private authCode?: string;
+  private phase?: string;
+  private lastFourDigits?: string;
+  private posOrderId?: string;
 
-  public getPrice(): string {
+  public getPrice(): string | undefined {
     return this.price;
   }
 
-  public setPrice(price: string): void {
+  public setPrice(price?: string): void {
     this.price = price;
   }
 
-  public getPaidPrice(): string {
+  public getPaidPrice(): string | undefined {
     return this.paidPrice;
   }
 
-  public setPaidPrice(paidPrice: string): void {
+  public setPaidPrice(paidPrice?: string): void {
     this.paidPrice = paidPrice;
   }
 
-  public getInstallment(): number {
+  public getInstallment(): number | undefined {
     return this.installment;
   }
 
-  public setInstallment(installment: number): void {
+  public setInstallment(installment?: number): void {
     this.installment = installment;
   }
 
-  public getCurrency(): string {
+  public getCurrency(): string | undefined {
     return this.currency;
   }
 
-  public setCurrency(currency: string): void {
+  public setCurrency(currency?: string): void {
     this.currency = currency;
   }
 
-  public getPaymentId(): string {
+  public getPaymentId(): string | undefined {
     return this.paymentId;
   }
 
-  public setPaymentId(paymentId: string): void {
+  public setPaymentId(paymentId?: string): void {
     this.paymentId = paymentId;
   }
 
-  public getPaymentStatus(): string {
+  public getPaymentStatus(): string | undefined {
     return this.paymentStatus;
   }
 
-  public setPaymentStatus(paymentStatus: string): void {
+  public setPaymentStatus(paymentStatus?: string): void {
     this.paymentStatus = paymentStatus;
   }
 
-  public getFraudStatus(): number {
+  public getFraudStatus(): number | undefined {
     return this.fraudStatus;
   }
 
-  public setFraudStatus(fraudStatus: number): void {
+  public setFraudStatus(fraudStatus?: number): void {
     this.fraudStatus = fraudStatus;
   }
 
-  public getMerchantCommissionRate(): number {
+  public getMerchantCommissionRate(): number | undefined {
     return this.merchantCommissionRate;
   }
 
-  public setMerchantCommissionRate(merchantCommissionRate: number): void {
+  public setMerchantCommissionRate(merchantCommissionRate?: number): void {
     this.merchantCommissionRate = merchantCommissionRate;
   }
 
-  public getMerchantCommissionRateAmount(): number {
+  public getMerchantCommissionRateAmount(): number | undefined {
     return this.merchantCommissionRateAmount;
   }
 
   public setMerchantCommissionRateAmount(
-    merchantCommissionRateAmount: number
+    merchantCommissionRateAmount?: number
   ): void {
     this.merchantCommissionRateAmount = merchantCommissionRateAmount;
   }
 
-  public getIyziCommissionRateAmount(): number {
+  public getIyziCommissionRateAmount(): number | undefined {
     return this.iyziCommissionRateAmount;
   }
 
-  public setIyziCommissionRateAmount(iyziCommissionRateAmount: number): void {
+  public setIyziCommissionRateAmount(iyziCommissionRateAmount?: number): void {
     this.iyziCommissionRateAmount = iyziCommissionRateAmount;
   }
 
-  public getIyziCommissionFee(): number {
+  public getIyziCommissionFee(): number | undefined {
     return this.iyziCommissionFee;
   }
 
-  public setIyziCommissionFee(iyziCommissionFee: number): void {
+  public setIyziCommissionFee(iyziCommissionFee?: number): void {
     this.iyziCommissionFee = iyziCommissionFee;
   }
 
-  public getCardType(): string {
+  public getCardType(): string | undefined {
     return this.cardType;
   }
 
-  public setCardType(cardType: string): void {
+  public setCardType(cardType?: string): void {
     this.cardType = cardType;
   }
 
-  public getCardAssociation(): string {
+  public getCardAssociation(): string | undefined {
     return this.cardAssociation;
   }
 
-  public setCardAssociation(cardAssociation: string): void {
+  public setCardAssociation(cardAssociation?: string): void {
     this.cardAssociation = cardAssociation;
   }
 
-  public getCardFamily(): string {
+  public getCardFamily(): string | undefined {
     return this.cardFamily;
   }
 
-  public setCardFamily(cardFamily: string): void {
+  public setCardFamily(cardFamily?: string): void {
     this.cardFamily = cardFamily;
   }
 
-  public getCardToken(): string {
+  public getCardToken(): string | undefined {
     return this.cardToken;
   }
 
-  public setCardToken(cardToken: string): void {
+  public setCardToken(cardToken?: string): void {
     this.cardToken = cardToken;
   }
 
-  public getCardUserKey(): string {
+  public getCardUserKey(): string | undefined {
     return this.cardUserKey;
   }
 
-  public setCardUserKey(cardUserKey: string): void {
+  public setCardUserKey(cardUserKey?: string): void {
     this.cardUserKey = cardUserKey;
   }
 
-  public getBinNumber(): string {
+  public getBinNumber(): string | undefined {
     return this.binNumber;
   }
 
-  public setBinNumber(binNumber: string): void {
+  public setBinNumber(binNumber?: string): void {
     this.binNumber = binNumber;
   }
 
-  public getBasketId(): string {
+  public getBasketId(): string | undefined {
     return this.basketId;
   }
 
-  public setBasketId(basketId: string): void {
+  public setBasketId(basketId?: string): void {
     this.basketId = basketId;
   }
 
-  public getPaymentItems(): any[] {
+  public getPaymentItems(): any[] | undefined {
     return this.paymentItems;
   }
 
-  public setPaymentItems(paymentItems: any[]): void {
+  public setPaymentItems(paymentItems?: any[]): void {
     this.paymentItems = paymentItems;
   }
 
-  public getConnectorName(): string {
+  public getConnectorName(): string | undefined {
     return this.connectorName;
   }
 
-  public setConnectorName(connectorName: string): void {
+  public setConnectorName(connectorName?: string): void {
     this.connectorName = connectorName;
   }
 
-  public getAuthCode(): string {
+  public getAuthCode(): string | undefined {
     return this.authCode;
   }
 
-  public setAuthCode(authCode: string): void {
+  public setAuthCode(authCode?: string): void {
     this.authCode = authCode;
   }
 
-  public getPhase(): string {
+  public getPhase(): string | undefined {
     return this.phase;
   }
 
-  public setPhase(phase: string): void {
+  public setPhase(phase?: string): void {
     this.phase = phase;
   }
 
-  public getLastFourDigits(): string {
+  public getLastFourDigits(): string | undefined {
     return this.lastFourDigits;
   }
 
-  public setLastFourDigits(lastFourDigits: string): void {
+  public setLastFourDigits(lastFourDigits?: string): void {
     this.lastFourDigits = lastFourDigits;
   }
 
-  public getPosOrderId(): string {
+  public getPosOrderId(): string | undefined {
     return this.posOrderId;
   }
 
-  public setPosOrderId(posOrderId: string): void {
+  public setPosOrderId(posOrderId?: string): void {
     this.posOrderId = posOrderId;
   }
 }
