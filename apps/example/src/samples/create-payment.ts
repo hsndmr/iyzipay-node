@@ -18,7 +18,7 @@ export async function createPayment() {
   const options = new Options();
 
   options.setApiKey(process.env.API_KEY);
-  options.setSecretKey(process.env.SECRET_KEY);
+  options.setSecretKey(process.env.API_SECRET);
   options.setBaseUrl('https://sandbox-api.iyzipay.com');
 
   const client = new IyzipayHttpClient(options);
