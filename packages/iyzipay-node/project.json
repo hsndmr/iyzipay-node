@@ -15,6 +15,17 @@
         "assets": ["packages/iyzipay-node/*.md"]
       }
     },
+    "serve": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/iyzipay-node",
+        "tsConfig": "packages/iyzipay-node/tsconfig.lib.json",
+        "packageJson": "packages/iyzipay-node/package.json",
+        "main": "packages/iyzipay-node/src/index.ts",
+        "assets": ["packages/iyzipay-node/*.md"]
+      }
+    },
     "publish": {
       "command": "node tools/scripts/publish.mjs iyzipay-node {args.ver} {args.tag}",
       "dependsOn": ["build"]
