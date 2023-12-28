@@ -94,7 +94,7 @@ export class BasketItem extends BaseModel {
   public toPKIRequestString(): string {
     return RequestStringBuilder.create()
       .append('id', this.getId())
-      .append('price', this.getPrice())
+      .appendPrice('price', this.getPrice())
       .append('name', this.getName())
       .append('category1', this.getCategory1())
       .append('category2', this.getCategory2())
