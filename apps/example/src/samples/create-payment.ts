@@ -1,15 +1,28 @@
 import {
   Address,
+  BasketItem,
+  BasketItemType,
   Buyer,
   CreatePaymentRequest,
   Currency,
+  IyzipayHttpClient,
   Locale,
+  Options,
+  Payment,
   PaymentCard,
   PaymentChannel,
   PaymentGroup,
 } from '@demirjs/iyzipay-node';
 
-export function createPayment() {
+export async function createPayment() {
+  const options = new Options();
+
+  options.setApiKey(process.env.API_KEY);
+  options.setSecretKey(process.env.SECRET_KEY);
+  options.setBaseUrl('https://sandbox-api.iyzipay.com');
+
+  const client = new IyzipayHttpClient(options);
+
   const request = new CreatePaymentRequest();
   request.setLocale(Locale.TR);
   request.setConversationId('123456789');
@@ -68,5 +81,35 @@ export function createPayment() {
   billingAddress.setZipCode('34742');
   request.setBillingAddress(billingAddress);
 
-  // TODO: Add basket items
+  const basketItems: BasketItem[] = [];
+  const firstBasketItem = new BasketItem();
+  firstBasketItem.setId('BI101');
+  firstBasketItem.setName('Binocular');
+  firstBasketItem.setCategory1('Collectibles');
+  firstBasketItem.setCategory2('Accessories');
+  firstBasketItem.setItemType(BasketItemType.PHYSICAL);
+  firstBasketItem.setPrice('0.3');
+  basketItems.push(firstBasketItem);
+
+  const secondBasketItem = new BasketItem();
+  secondBasketItem.setId('BI102');
+  secondBasketItem.setName('Game code');
+  secondBasketItem.setCategory1('Game');
+  secondBasketItem.setCategory2('Online Game Items');
+  secondBasketItem.setItemType(BasketItemType.VIRTUAL);
+  secondBasketItem.setPrice('0.5');
+  basketItems.push(secondBasketItem);
+
+  const thirdBasketItem = new BasketItem();
+  thirdBasketItem.setId('BI103');
+  thirdBasketItem.setName('Usb');
+  thirdBasketItem.setCategory1('Electronics');
+  thirdBasketItem.setCategory2('Usb / Cable');
+  thirdBasketItem.setItemType(BasketItemType.PHYSICAL);
+  thirdBasketItem.setPrice('0.2');
+  basketItems.push(thirdBasketItem);
+
+  request.setBasketItems(basketItems);
+
+  return Payment.create(request, client);
 }
