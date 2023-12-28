@@ -27,7 +27,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs iyzipay-node {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs iyzipay-node",
       "dependsOn": ["build"]
     },
     "lint": {
