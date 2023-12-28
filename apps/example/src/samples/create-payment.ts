@@ -14,7 +14,7 @@ import {
   PaymentGroup,
 } from '@demirjs/iyzipay-node';
 
-export async function createPayment() {
+export function createPayment() {
   const options = new Options();
 
   options.setApiKey(process.env.API_KEY);
