@@ -46,7 +46,11 @@ invariant(
   `Could not find "build.options.outputPath" of project "${name}". Is project.json configured  correctly?`
 );
 
-copyFileSync(`README.md`, `${outputPath}/README.md`);
+const filesToCopy = ['README.md', '.npmrc'];
+
+filesToCopy.forEach((file) => {
+  copyFileSync(file, `${outputPath}/${file}`);
+});
 
 process.chdir(outputPath);
 
