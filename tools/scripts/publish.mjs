@@ -54,7 +54,7 @@ filesToCopy.forEach((file) => {
 
 process.chdir(outputPath);
 
-const json = JSON.parse(readFileSync(`package.json`, 'utf8').toString());
+const json = JSON.parse(readFileSync(`package.json`).toString());
 const publishedVersion = getPublishedVersion(json.name);
 
 if (publishedVersion === json.version) {
