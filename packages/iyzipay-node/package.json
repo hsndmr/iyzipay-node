@@ -1,6 +1,7 @@
 {
   "name": "@demirjs/iyzipay-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "license": "MIT",
   "peerDependencies": {
     "axios": "^1.6.3"
   },
