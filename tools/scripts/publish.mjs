@@ -8,10 +8,19 @@
  */
 
 import { execSync } from 'child_process';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, copyFileSync } from 'fs';
 
 import devkit from '@nx/devkit';
 const { readCachedProjectGraph } = devkit;
+
+function getPublishedVersion(packageName) {
+  try {
+    return execSync(`npm view ${packageName} version`).toString().trim();
+  } catch (error) {
+    console.error('Error fetching published version:', error);
+    return null;
+  }
+}
 
 function invariant(condition, message) {
   if (!condition) {
@@ -21,15 +30,7 @@ function invariant(condition, message) {
 }
 
 // Executing publish script: node path/to/publish.mjs {name} --version {version} --tag {tag}
-// Default "tag" to "next" so we won't publish the "latest" tag by accident.
-const [, , name, version, tag = 'next'] = process.argv;
-
-// A simple SemVer validation to validate the version
-const validVersion = /^\d+\.\d+\.\d+(-\w+\.\d+)?/;
-invariant(
-  version && validVersion.test(version),
-  `No version provided or version did not match Semantic Versioning, expected: #.#.#-tag.# or #.#.#, got ${version}.`
-);
+const [, , name] = process.argv;
 
 const graph = readCachedProjectGraph();
 const project = graph.nodes[name];
@@ -45,16 +46,18 @@ invariant(
   `Could not find "build.options.outputPath" of project "${name}". Is project.json configured  correctly?`
 );
 
+copyFileSync(`README.md`, `${outputPath}/README.md`);
+
 process.chdir(outputPath);
 
-// Updating the version in "package.json" before publishing
-try {
-  const json = JSON.parse(readFileSync(`package.json`).toString());
-  json.version = version;
-  writeFileSync(`package.json`, JSON.stringify(json, null, 2));
-} catch (e) {
-  console.error(`Error reading package.json file from library build output.`);
+const json = JSON.parse(readFileSync(`package.json`, 'utf8').toString());
+const publishedVersion = getPublishedVersion(json.name);
+
+if (publishedVersion === json.version) {
+  console.log(
+    `Version ${publishedVersion} already published. Skipping publish.`
+  );
+  process.exit(0);
 }
 
-// Execute "npm publish" to publish
-execSync(`npm publish --access public --tag ${tag}`);
+execSync(`npm publish --access public`);
