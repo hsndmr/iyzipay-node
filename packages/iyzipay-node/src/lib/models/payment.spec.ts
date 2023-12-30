@@ -1,4 +1,3 @@
-import { IyzipayHttpClient } from '../iyzipay-http-client';
 import { Options } from '../options';
 import { CreatePaymentRequest } from '../requests';
 import {
