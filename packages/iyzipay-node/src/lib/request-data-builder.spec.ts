@@ -75,4 +75,22 @@ describe('RequestDataBuilder', () => {
       arrayKey: [],
     });
   });
+
+  it('should add price correctly', () => {
+    // Arrange
+    const builder = RequestDataBuilder.create().addPrice('priceKey', '1');
+
+    // Act && Assert
+    expect(builder.get()).toEqual({
+      priceKey: '1.0',
+    });
+  });
+
+  it('should ignore null price', () => {
+    // Arrange
+    const builder = RequestDataBuilder.create().addPrice('priceKey', null);
+
+    // Act && Assert
+    expect(builder.get()).toEqual({});
+  });
 });

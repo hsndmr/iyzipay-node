@@ -3,6 +3,8 @@ import {
   RequestDataSupplier,
   isRequestDataSupplier,
 } from './request-data-supplier.interface';
+import { RequestFormatter } from './request-formatter';
+import { OptionalType } from './types';
 import { isNotNullOrUndefined } from './utils';
 
 export type RequestValue = FlexibleData | RequestDataSupplier | FlexibleValue;
@@ -25,6 +27,14 @@ export class RequestDataBuilder {
   public add(key: string, value: RequestValue = null): this {
     if (isNotNullOrUndefined(value)) {
       this.data[key] = this.processData(value);
+    }
+
+    return this;
+  }
+
+  public addPrice(key: string, value: OptionalType<string>): this {
+    if (isNotNullOrUndefined(value)) {
+      this.data[key] = RequestFormatter.formatPrice(value);
     }
 
     return this;
