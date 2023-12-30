@@ -1,175 +1,180 @@
+import { OptionalType } from '../../types';
 import { PaymentItem } from '../payment-item';
 import { IyzipayResource } from './iyzipay-resource';
 
 export class PaymentResource extends IyzipayResource {
-  private price?: string;
-  private paidPrice?: string;
-  private installment?: number;
-  private currency?: string;
-  private paymentId?: string;
-  private paymentStatus?: string;
-  private fraudStatus?: number;
-  private merchantCommissionRate?: number;
-  private merchantCommissionRateAmount?: number;
-  private iyziCommissionRateAmount?: number;
-  private iyziCommissionFee?: number;
-  private cardType?: string;
-  private cardAssociation?: string;
-  private cardFamily?: string;
-  private cardToken?: string;
-  private cardUserKey?: string;
-  private binNumber?: string;
-  private basketId?: string;
+  private price: OptionalType<string>;
+  private paidPrice: OptionalType<string>;
+  private installment: OptionalType<number>;
+  private currency: OptionalType<string>;
+  private paymentId: OptionalType<string>;
+  private paymentStatus: OptionalType<string>;
+  private fraudStatus: OptionalType<number>;
+  private merchantCommissionRate: OptionalType<number>;
+  private merchantCommissionRateAmount: OptionalType<number>;
+  private iyziCommissionRateAmount: OptionalType<number>;
+  private iyziCommissionFee: OptionalType<number>;
+  private cardType: OptionalType<string>;
+  private cardAssociation: OptionalType<string>;
+  private cardFamily: OptionalType<string>;
+  private cardToken: OptionalType<string>;
+  private cardUserKey: OptionalType<string>;
+  private binNumber: OptionalType<string>;
+  private basketId: OptionalType<string>;
   private paymentItems?: PaymentItem[];
-  private connectorName?: string;
-  private authCode?: string;
-  private phase?: string;
-  private lastFourDigits?: string;
-  private posOrderId?: string;
+  private connectorName: OptionalType<string>;
+  private authCode: OptionalType<string>;
+  private phase: OptionalType<string>;
+  private lastFourDigits: OptionalType<string>;
+  private posOrderId: OptionalType<string>;
 
-  public getPrice(): string | undefined {
+  public getPrice(): OptionalType<string> {
     return this.price;
   }
 
-  public setPrice(price?: string): void {
+  public setPrice(price: OptionalType<string>): void {
     this.price = price;
   }
 
-  public getPaidPrice(): string | undefined {
+  public getPaidPrice(): OptionalType<string> {
     return this.paidPrice;
   }
 
-  public setPaidPrice(paidPrice?: string): void {
+  public setPaidPrice(paidPrice: OptionalType<string>): void {
     this.paidPrice = paidPrice;
   }
 
-  public getInstallment(): number | undefined {
+  public getInstallment(): OptionalType<number> {
     return this.installment;
   }
 
-  public setInstallment(installment?: number): void {
+  public setInstallment(installment: OptionalType<number>): void {
     this.installment = installment;
   }
 
-  public getCurrency(): string | undefined {
+  public getCurrency(): OptionalType<string> {
     return this.currency;
   }
 
-  public setCurrency(currency?: string): void {
+  public setCurrency(currency: OptionalType<string>): void {
     this.currency = currency;
   }
 
-  public getPaymentId(): string | undefined {
+  public getPaymentId(): OptionalType<string> {
     return this.paymentId;
   }
 
-  public setPaymentId(paymentId?: string): void {
+  public setPaymentId(paymentId: OptionalType<string>): void {
     this.paymentId = paymentId;
   }
 
-  public getPaymentStatus(): string | undefined {
+  public getPaymentStatus(): OptionalType<string> {
     return this.paymentStatus;
   }
 
-  public setPaymentStatus(paymentStatus?: string): void {
+  public setPaymentStatus(paymentStatus: OptionalType<string>): void {
     this.paymentStatus = paymentStatus;
   }
 
-  public getFraudStatus(): number | undefined {
+  public getFraudStatus(): OptionalType<number> {
     return this.fraudStatus;
   }
 
-  public setFraudStatus(fraudStatus?: number): void {
+  public setFraudStatus(fraudStatus: OptionalType<number>): void {
     this.fraudStatus = fraudStatus;
   }
 
-  public getMerchantCommissionRate(): number | undefined {
+  public getMerchantCommissionRate(): OptionalType<number> {
     return this.merchantCommissionRate;
   }
 
-  public setMerchantCommissionRate(merchantCommissionRate?: number): void {
+  public setMerchantCommissionRate(
+    merchantCommissionRate: OptionalType<number>
+  ): void {
     this.merchantCommissionRate = merchantCommissionRate;
   }
 
-  public getMerchantCommissionRateAmount(): number | undefined {
+  public getMerchantCommissionRateAmount(): OptionalType<number> {
     return this.merchantCommissionRateAmount;
   }
 
   public setMerchantCommissionRateAmount(
-    merchantCommissionRateAmount?: number
+    merchantCommissionRateAmount: OptionalType<number>
   ): void {
     this.merchantCommissionRateAmount = merchantCommissionRateAmount;
   }
 
-  public getIyziCommissionRateAmount(): number | undefined {
+  public getIyziCommissionRateAmount(): OptionalType<number> {
     return this.iyziCommissionRateAmount;
   }
 
-  public setIyziCommissionRateAmount(iyziCommissionRateAmount?: number): void {
+  public setIyziCommissionRateAmount(
+    iyziCommissionRateAmount: OptionalType<number>
+  ): void {
     this.iyziCommissionRateAmount = iyziCommissionRateAmount;
   }
 
-  public getIyziCommissionFee(): number | undefined {
+  public getIyziCommissionFee(): OptionalType<number> {
     return this.iyziCommissionFee;
   }
 
-  public setIyziCommissionFee(iyziCommissionFee?: number): void {
+  public setIyziCommissionFee(iyziCommissionFee: OptionalType<number>): void {
     this.iyziCommissionFee = iyziCommissionFee;
   }
 
-  public getCardType(): string | undefined {
+  public getCardType(): OptionalType<string> {
     return this.cardType;
   }
 
-  public setCardType(cardType?: string): void {
+  public setCardType(cardType: OptionalType<string>): void {
     this.cardType = cardType;
   }
 
-  public getCardAssociation(): string | undefined {
+  public getCardAssociation(): OptionalType<string> {
     return this.cardAssociation;
   }
 
-  public setCardAssociation(cardAssociation?: string): void {
+  public setCardAssociation(cardAssociation: OptionalType<string>): void {
     this.cardAssociation = cardAssociation;
   }
 
-  public getCardFamily(): string | undefined {
+  public getCardFamily(): OptionalType<string> {
     return this.cardFamily;
   }
 
-  public setCardFamily(cardFamily?: string): void {
+  public setCardFamily(cardFamily: OptionalType<string>): void {
     this.cardFamily = cardFamily;
   }
 
-  public getCardToken(): string | undefined {
+  public getCardToken(): OptionalType<string> {
     return this.cardToken;
   }
 
-  public setCardToken(cardToken?: string): void {
+  public setCardToken(cardToken: OptionalType<string>): void {
     this.cardToken = cardToken;
   }
 
-  public getCardUserKey(): string | undefined {
+  public getCardUserKey(): OptionalType<string> {
     return this.cardUserKey;
   }
 
-  public setCardUserKey(cardUserKey?: string): void {
+  public setCardUserKey(cardUserKey: OptionalType<string>): void {
     this.cardUserKey = cardUserKey;
   }
 
-  public getBinNumber(): string | undefined {
+  public getBinNumber(): OptionalType<string> {
     return this.binNumber;
   }
 
-  public setBinNumber(binNumber?: string): void {
+  public setBinNumber(binNumber: OptionalType<string>): void {
     this.binNumber = binNumber;
   }
 
-  public getBasketId(): string | undefined {
+  public getBasketId(): OptionalType<string> {
     return this.basketId;
   }
 
-  public setBasketId(basketId?: string): void {
+  public setBasketId(basketId: OptionalType<string>): void {
     this.basketId = basketId;
   }
 
@@ -182,43 +187,43 @@ export class PaymentResource extends IyzipayResource {
     this.paymentItems = paymentItems;
   }
 
-  public getConnectorName(): string | undefined {
+  public getConnectorName(): OptionalType<string> {
     return this.connectorName;
   }
 
-  public setConnectorName(connectorName?: string): void {
+  public setConnectorName(connectorName: OptionalType<string>): void {
     this.connectorName = connectorName;
   }
 
-  public getAuthCode(): string | undefined {
+  public getAuthCode(): OptionalType<string> {
     return this.authCode;
   }
 
-  public setAuthCode(authCode?: string): void {
+  public setAuthCode(authCode: OptionalType<string>): void {
     this.authCode = authCode;
   }
 
-  public getPhase(): string | undefined {
+  public getPhase(): OptionalType<string> {
     return this.phase;
   }
 
-  public setPhase(phase?: string): void {
+  public setPhase(phase: OptionalType<string>): void {
     this.phase = phase;
   }
 
-  public getLastFourDigits(): string | undefined {
+  public getLastFourDigits(): OptionalType<string> {
     return this.lastFourDigits;
   }
 
-  public setLastFourDigits(lastFourDigits?: string): void {
+  public setLastFourDigits(lastFourDigits: OptionalType<string>): void {
     this.lastFourDigits = lastFourDigits;
   }
 
-  public getPosOrderId(): string | undefined {
+  public getPosOrderId(): OptionalType<string> {
     return this.posOrderId;
   }
 
-  public setPosOrderId(posOrderId?: string): void {
+  public setPosOrderId(posOrderId: OptionalType<string>): void {
     this.posOrderId = posOrderId;
   }
 }
