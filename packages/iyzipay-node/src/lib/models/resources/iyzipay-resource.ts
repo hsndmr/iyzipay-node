@@ -1,67 +1,68 @@
 import { ApiResource } from '../../api-resource';
+import { OptionalType } from '../../types';
 
 export class IyzipayResource extends ApiResource {
-  private status?: string;
-  private errorCode?: string;
-  private errorMessage?: string;
-  private errorGroup?: string;
-  private locale?: string;
-  private systemTime?: number;
-  private conversationId?: string;
+  private status: OptionalType<string> = null;
+  private errorCode: OptionalType<string> = null;
+  private errorMessage: OptionalType<string> = null;
+  private errorGroup?: OptionalType<string> = null;
+  private locale: OptionalType<string> = null;
+  private systemTime: OptionalType<number> = null;
+  private conversationId: OptionalType<string> = null;
 
-  public getStatus(): string | undefined {
+  public getStatus(): OptionalType<string> {
     return this.status;
   }
 
-  public setStatus(status?: string): void {
+  public setStatus(status: OptionalType<string>): void {
     this.status = status;
   }
 
-  public getErrorCode(): string | undefined {
+  public getErrorCode(): OptionalType<string> {
     return this.errorCode;
   }
 
-  public setErrorCode(errorCode?: string): void {
+  public setErrorCode(errorCode: OptionalType<string>): void {
     this.errorCode = errorCode;
   }
 
-  public getErrorMessage(): string | undefined {
+  public getErrorMessage(): OptionalType<string> {
     return this.errorMessage;
   }
 
-  public setErrorMessage(errorMessage?: string): void {
+  public setErrorMessage(errorMessage: OptionalType<string>): void {
     this.errorMessage = errorMessage;
   }
 
-  public getErrorGroup(): string | undefined {
+  public getErrorGroup(): OptionalType<string> {
     return this.errorGroup;
   }
 
-  public setErrorGroup(errorGroup?: string): void {
+  public setErrorGroup(errorGroup: OptionalType<string>): void {
     this.errorGroup = errorGroup;
   }
 
-  public getLocale(): string | undefined {
+  public getLocale(): OptionalType<string> {
     return this.locale;
   }
 
-  public setLocale(locale?: string): void {
+  public setLocale(locale: OptionalType<string>): void {
     this.locale = locale;
   }
 
-  public getSystemTime(): number | undefined {
+  public getSystemTime(): OptionalType<number> {
     return this.systemTime;
   }
 
-  public setSystemTime(systemTime?: number): void {
+  public setSystemTime(systemTime: OptionalType<number>): void {
     this.systemTime = systemTime;
   }
 
-  public getConversationId(): string | undefined {
+  public getConversationId(): OptionalType<string> {
     return this.conversationId;
   }
 
-  public setConversationId(conversationId?: string): void {
+  public setConversationId(conversationId: OptionalType<string>): void {
     this.conversationId = conversationId;
   }
 }
