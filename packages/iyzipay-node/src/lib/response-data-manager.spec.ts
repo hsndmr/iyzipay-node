@@ -42,6 +42,6 @@ describe('ResponseDataManager', () => {
     const nonExisting = manager.get<string>('nonExistingKey');
 
     // Assert
-    expect(nonExisting).toBeUndefined();
+    expect(nonExisting).toBeNull();
   });
 });

@@ -1,3 +1,5 @@
+import { OptionalType } from './types';
+
 export type ResponseData = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
@@ -18,7 +20,7 @@ export class ResponseDataManager {
     this.data = data;
   }
 
-  public get<T>(key: string): T | undefined {
-    return this.data[key] ?? undefined;
+  public get<T>(key: string): OptionalType<T> {
+    return this.data[key] ?? null;
   }
 }
