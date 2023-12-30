@@ -61,19 +61,17 @@ export class RequestStringBuilder {
     return this;
   }
 
-  public appendArray(key: string, array?: Value[]): this {
-    if (isNotNullOrUndefined(array)) {
-      let appendedValue = '';
-      array.forEach((value) => {
-        if (value !== null) {
-          appendedValue += this.serializeForPKIRequest(value);
+  public appendArray(key: string, array: Value[]): this {
+    let appendedValue = '';
+    array.forEach((value) => {
+      if (value !== null) {
+        appendedValue += this.serializeForPKIRequest(value);
 
-          appendedValue += ', ';
-        }
-      });
+        appendedValue += ', ';
+      }
+    });
 
-      this.appendKeyValueArray(key, appendedValue);
-    }
+    this.appendKeyValueArray(key, appendedValue);
 
     return this;
   }
