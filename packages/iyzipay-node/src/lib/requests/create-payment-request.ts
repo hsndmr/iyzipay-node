@@ -117,11 +117,11 @@ export class CreatePaymentRequest extends Request {
     this.billingAddress = billingAddress;
   }
 
-  public getBasketItems(): OptionalType<BasketItem> {
+  public getBasketItems(): OptionalType<BasketItem[]> {
     return this.basketItems;
   }
 
-  public setBasketItems(basketItems: OptionalType<BasketItem>): void {
+  public setBasketItems(basketItems: OptionalType<BasketItem[]>): void {
     this.basketItems = basketItems;
   }
 
