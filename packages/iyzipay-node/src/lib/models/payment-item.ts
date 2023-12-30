@@ -1,177 +1,188 @@
+import { OptionalType } from '../types';
 import { ConvertedPayout } from './converted-payout';
 
 export class PaymentItem {
-  private itemId?: string;
-  private paymentTransactionId?: string;
-  private transactionStatus?: string;
-  private price?: number;
-  private paidPrice?: number;
-  private merchantCommissionRate?: number;
-  private merchantCommissionRateAmount?: number;
-  private iyziCommissionRateAmount?: number;
-  private iyziCommissionFee?: number;
-  private blockageRate?: number;
-  private blockageRateAmountMerchant?: number;
-  private blockageRateAmountSubMerchant?: number;
-  private blockageResolvedDate?: Date;
-  private subMerchantKey?: string;
-  private subMerchantPrice?: number;
-  private subMerchantPayoutRate?: number;
-  private subMerchantPayoutAmount?: number;
-  private merchantPayoutAmount?: number;
-  private convertedPayout?: ConvertedPayout;
+  private itemId: OptionalType<string> = null;
+  private paymentTransactionId: OptionalType<string> = null;
+  private transactionStatus: OptionalType<string> = null;
+  private price: OptionalType<number> = null;
+  private paidPrice: OptionalType<number> = null;
+  private merchantCommissionRate: OptionalType<number> = null;
+  private merchantCommissionRateAmount: OptionalType<number> = null;
+  private iyziCommissionRateAmount: OptionalType<number> = null;
+  private iyziCommissionFee: OptionalType<number> = null;
+  private blockageRate: OptionalType<number> = null;
+  private blockageRateAmountMerchant: OptionalType<number> = null;
+  private blockageRateAmountSubMerchant: OptionalType<number> = null;
+  private blockageResolvedDate: OptionalType<Date> = null;
+  private subMerchantKey: OptionalType<string> = null;
+  private subMerchantPrice: OptionalType<number> = null;
+  private subMerchantPayoutRate: OptionalType<number> = null;
+  private subMerchantPayoutAmount: OptionalType<number> = null;
+  private merchantPayoutAmount: OptionalType<number> = null;
+  private convertedPayout: OptionalType<ConvertedPayout> = null;
 
-  getItemId(): string | undefined {
+  getItemId(): OptionalType<string> {
     return this.itemId;
   }
 
-  setItemId(itemId?: string): void {
+  setItemId(itemId: OptionalType<string>): void {
     this.itemId = itemId;
   }
 
-  getPaymentTransactionId(): string | undefined {
+  getPaymentTransactionId(): OptionalType<string> {
     return this.paymentTransactionId;
   }
 
-  setPaymentTransactionId(paymentTransactionId?: string): void {
+  setPaymentTransactionId(paymentTransactionId: OptionalType<string>): void {
     this.paymentTransactionId = paymentTransactionId;
   }
 
-  getTransactionStatus(): string | undefined {
+  getTransactionStatus(): OptionalType<string> {
     return this.transactionStatus;
   }
 
-  setTransactionStatus(transactionStatus?: string): void {
+  setTransactionStatus(transactionStatus: OptionalType<string>): void {
     this.transactionStatus = transactionStatus;
   }
 
-  getPrice(): number | undefined {
+  getPrice(): OptionalType<number> {
     return this.price;
   }
 
-  setPrice(price?: number): void {
+  setPrice(price: OptionalType<number>): void {
     this.price = price;
   }
 
-  getPaidPrice(): number | undefined {
+  getPaidPrice(): OptionalType<number> {
     return this.paidPrice;
   }
 
-  setPaidPrice(paidPrice?: number): void {
+  setPaidPrice(paidPrice: OptionalType<number>): void {
     this.paidPrice = paidPrice;
   }
 
-  getMerchantCommissionRate(): number | undefined {
+  getMerchantCommissionRate(): OptionalType<number> {
     return this.merchantCommissionRate;
   }
 
-  setMerchantCommissionRate(merchantCommissionRate?: number): void {
+  setMerchantCommissionRate(
+    merchantCommissionRate: OptionalType<number>
+  ): void {
     this.merchantCommissionRate = merchantCommissionRate;
   }
 
-  getMerchantCommissionRateAmount(): number | undefined {
+  getMerchantCommissionRateAmount(): OptionalType<number> {
     return this.merchantCommissionRateAmount;
   }
 
-  setMerchantCommissionRateAmount(merchantCommissionRateAmount?: number): void {
+  setMerchantCommissionRateAmount(
+    merchantCommissionRateAmount: OptionalType<number>
+  ): void {
     this.merchantCommissionRateAmount = merchantCommissionRateAmount;
   }
 
-  getIyziCommissionRateAmount(): number | undefined {
+  getIyziCommissionRateAmount(): OptionalType<number> {
     return this.iyziCommissionRateAmount;
   }
 
-  setIyziCommissionRateAmount(iyziCommissionRateAmount?: number): void {
+  setIyziCommissionRateAmount(
+    iyziCommissionRateAmount: OptionalType<number>
+  ): void {
     this.iyziCommissionRateAmount = iyziCommissionRateAmount;
   }
 
-  getIyziCommissionFee(): number | undefined {
+  getIyziCommissionFee(): OptionalType<number> {
     return this.iyziCommissionFee;
   }
 
-  setIyziCommissionFee(iyziCommissionFee?: number): void {
+  setIyziCommissionFee(iyziCommissionFee: OptionalType<number>): void {
     this.iyziCommissionFee = iyziCommissionFee;
   }
 
-  getBlockageRate(): number | undefined {
+  getBlockageRate(): OptionalType<number> {
     return this.blockageRate;
   }
 
-  setBlockageRate(blockageRate?: number): void {
+  setBlockageRate(blockageRate: OptionalType<number>): void {
     this.blockageRate = blockageRate;
   }
 
-  getBlockageRateAmountMerchant(): number | undefined {
+  getBlockageRateAmountMerchant(): OptionalType<number> {
     return this.blockageRateAmountMerchant;
   }
 
-  setBlockageRateAmountMerchant(blockageRateAmountMerchant?: number): void {
+  setBlockageRateAmountMerchant(
+    blockageRateAmountMerchant: OptionalType<number>
+  ): void {
     this.blockageRateAmountMerchant = blockageRateAmountMerchant;
   }
 
-  getBlockageRateAmountSubMerchant(): number | undefined {
+  getBlockageRateAmountSubMerchant(): OptionalType<number> {
     return this.blockageRateAmountSubMerchant;
   }
 
   setBlockageRateAmountSubMerchant(
-    blockageRateAmountSubMerchant?: number
+    blockageRateAmountSubMerchant: OptionalType<number>
   ): void {
     this.blockageRateAmountSubMerchant = blockageRateAmountSubMerchant;
   }
 
-  getBlockageResolvedDate(): Date | undefined {
+  getBlockageResolvedDate(): OptionalType<Date> {
     return this.blockageResolvedDate;
   }
 
-  setBlockageResolvedDate(blockageResolvedDate?: Date): void {
+  setBlockageResolvedDate(blockageResolvedDate: OptionalType<Date>): void {
     this.blockageResolvedDate = blockageResolvedDate;
   }
 
-  getSubMerchantKey(): string | undefined {
+  getSubMerchantKey(): OptionalType<string> {
     return this.subMerchantKey;
   }
 
-  setSubMerchantKey(subMerchantKey?: string): void {
+  setSubMerchantKey(subMerchantKey: OptionalType<string>): void {
     this.subMerchantKey = subMerchantKey;
   }
 
-  getSubMerchantPrice(): number | undefined {
+  getSubMerchantPrice(): OptionalType<number> {
     return this.subMerchantPrice;
   }
 
-  setSubMerchantPrice(subMerchantPrice?: number): void {
+  setSubMerchantPrice(subMerchantPrice: OptionalType<number>): void {
     this.subMerchantPrice = subMerchantPrice;
   }
 
-  getSubMerchantPayoutRate(): number | undefined {
+  getSubMerchantPayoutRate(): OptionalType<number> {
     return this.subMerchantPayoutRate;
   }
 
-  setSubMerchantPayoutRate(subMerchantPayoutRate?: number): void {
+  setSubMerchantPayoutRate(subMerchantPayoutRate: OptionalType<number>): void {
     this.subMerchantPayoutRate = subMerchantPayoutRate;
   }
 
-  getSubMerchantPayoutAmount(): number | undefined {
+  getSubMerchantPayoutAmount(): OptionalType<number> {
     return this.subMerchantPayoutAmount;
   }
 
-  setSubMerchantPayoutAmount(subMerchantPayoutAmount?: number): void {
+  setSubMerchantPayoutAmount(
+    subMerchantPayoutAmount: OptionalType<number>
+  ): void {
     this.subMerchantPayoutAmount = subMerchantPayoutAmount;
   }
 
-  getMerchantPayoutAmount(): number | undefined {
+  getMerchantPayoutAmount(): OptionalType<number> {
     return this.merchantPayoutAmount;
   }
 
-  setMerchantPayoutAmount(merchantPayoutAmount?: number): void {
+  setMerchantPayoutAmount(merchantPayoutAmount: OptionalType<number>): void {
     this.merchantPayoutAmount = merchantPayoutAmount;
   }
 
-  getConvertedPayout(): ConvertedPayout | undefined {
+  getConvertedPayout(): OptionalType<ConvertedPayout> {
     return this.convertedPayout;
   }
 
-  setConvertedPayout(convertedPayout?: ConvertedPayout): void {
+  setConvertedPayout(convertedPayout: OptionalType<ConvertedPayout>): void {
     this.convertedPayout = convertedPayout;
   }
 }
