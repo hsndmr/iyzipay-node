@@ -1,94 +1,104 @@
-export class ConvertedPayout {
-  private paidPrice?: number;
-  private iyziCommissionRateAmount?: number;
-  private iyziCommissionFee?: number;
-  private blockageRateAmountMerchant?: number;
-  private blockageRateAmountSubMerchant?: number;
-  private subMerchantPayoutAmount?: number;
-  private merchantPayoutAmount?: number;
-  private iyziConversionRate?: number;
-  private iyziConversionRateAmount?: number;
-  private currency?: string;
+import { OptionalType } from '../types';
 
-  getPaidPrice(): number | undefined {
+export class ConvertedPayout {
+  private paidPrice: OptionalType<number> = null;
+  private iyziCommissionRateAmount: OptionalType<number> = null;
+  private iyziCommissionFee: OptionalType<number> = null;
+  private blockageRateAmountMerchant: OptionalType<number> = null;
+  private blockageRateAmountSubMerchant: OptionalType<number> = null;
+  private subMerchantPayoutAmount: OptionalType<number> = null;
+  private merchantPayoutAmount: OptionalType<number> = null;
+  private iyziConversionRate: OptionalType<number> = null;
+  private iyziConversionRateAmount: OptionalType<number> = null;
+  private currency: OptionalType<string> = null;
+
+  getPaidPrice(): OptionalType<number> {
     return this.paidPrice;
   }
 
-  setPaidPrice(paidPrice?: number): void {
+  setPaidPrice(paidPrice: OptionalType<number>): void {
     this.paidPrice = paidPrice;
   }
 
-  getIyziCommissionRateAmount(): number | undefined {
+  getIyziCommissionRateAmount(): OptionalType<number> {
     return this.iyziCommissionRateAmount;
   }
 
-  setIyziCommissionRateAmount(iyziCommissionRateAmount?: number): void {
+  setIyziCommissionRateAmount(
+    iyziCommissionRateAmount: OptionalType<number>
+  ): void {
     this.iyziCommissionRateAmount = iyziCommissionRateAmount;
   }
 
-  getIyziCommissionFee(): number | undefined {
+  getIyziCommissionFee(): OptionalType<number> {
     return this.iyziCommissionFee;
   }
 
-  setIyziCommissionFee(iyziCommissionFee?: number): void {
+  setIyziCommissionFee(iyziCommissionFee: OptionalType<number>): void {
     this.iyziCommissionFee = iyziCommissionFee;
   }
 
-  getBlockageRateAmountMerchant(): number | undefined {
+  getBlockageRateAmountMerchant(): OptionalType<number> {
     return this.blockageRateAmountMerchant;
   }
 
-  setBlockageRateAmountMerchant(blockageRateAmountMerchant?: number): void {
+  setBlockageRateAmountMerchant(
+    blockageRateAmountMerchant: OptionalType<number>
+  ): void {
     this.blockageRateAmountMerchant = blockageRateAmountMerchant;
   }
 
-  getBlockageRateAmountSubMerchant(): number | undefined {
+  getBlockageRateAmountSubMerchant(): OptionalType<number> {
     return this.blockageRateAmountSubMerchant;
   }
 
   setBlockageRateAmountSubMerchant(
-    blockageRateAmountSubMerchant?: number
+    blockageRateAmountSubMerchant: OptionalType<number>
   ): void {
     this.blockageRateAmountSubMerchant = blockageRateAmountSubMerchant;
   }
 
-  getSubMerchantPayoutAmount(): number | undefined {
+  getSubMerchantPayoutAmount(): OptionalType<number> {
     return this.subMerchantPayoutAmount;
   }
 
-  setSubMerchantPayoutAmount(subMerchantPayoutAmount?: number): void {
+  setSubMerchantPayoutAmount(
+    subMerchantPayoutAmount: OptionalType<number>
+  ): void {
     this.subMerchantPayoutAmount = subMerchantPayoutAmount;
   }
 
-  getMerchantPayoutAmount(): number | undefined {
+  getMerchantPayoutAmount(): OptionalType<number> {
     return this.merchantPayoutAmount;
   }
 
-  setMerchantPayoutAmount(merchantPayoutAmount?: number): void {
+  setMerchantPayoutAmount(merchantPayoutAmount: OptionalType<number>): void {
     this.merchantPayoutAmount = merchantPayoutAmount;
   }
 
-  getIyziConversionRate(): number | undefined {
+  getIyziConversionRate(): OptionalType<number> {
     return this.iyziConversionRate;
   }
 
-  setIyziConversionRate(iyziConversionRate?: number): void {
+  setIyziConversionRate(iyziConversionRate: OptionalType<number>): void {
     this.iyziConversionRate = iyziConversionRate;
   }
 
-  getIyziConversionRateAmount(): number | undefined {
+  getIyziConversionRateAmount(): OptionalType<number> {
     return this.iyziConversionRateAmount;
   }
 
-  setIyziConversionRateAmount(iyziConversionRateAmount?: number): void {
+  setIyziConversionRateAmount(
+    iyziConversionRateAmount: OptionalType<number>
+  ): void {
     this.iyziConversionRateAmount = iyziConversionRateAmount;
   }
 
-  getCurrency(): string | undefined {
+  getCurrency(): OptionalType<string> {
     return this.currency;
   }
 
-  setCurrency(currency?: string): void {
+  setCurrency(currency: OptionalType<string>): void {
     this.currency = currency;
   }
 }
