@@ -91,4 +91,20 @@ describe('RequestStringBuilder', () => {
     // Act & Assert
     expect(builder.getRequestString()).toEqual('[testKey=[value1PKI, value2]]');
   });
+
+  it('should append price value correctly', () => {
+    // Arrange
+    const builder = RequestStringBuilder.create().appendPrice('price', '1');
+
+    // Act & Assert
+    expect(builder.getRequestString()).toEqual('[price=1.0]');
+  });
+
+  it('should not append null price value', () => {
+    // Arrange
+    const builder = RequestStringBuilder.create().appendPrice('price', null);
+
+    // Act & Assert
+    expect(builder.getRequestString()).toEqual('[]');
+  });
 });
