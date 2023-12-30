@@ -198,7 +198,7 @@ export class CreatePaymentRequest extends Request {
       )
       .addArray(
         'basketItems',
-        this.basketItems.length > 0 ? this.basketItems : null
+        this.basketItems?.length > 0 ? this.basketItems : null
       )
       .add('paymentSource', this.paymentSource)
       .add('currency', this.currency)
