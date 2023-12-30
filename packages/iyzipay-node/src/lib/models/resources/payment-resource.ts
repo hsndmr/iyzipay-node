@@ -3,30 +3,30 @@ import { PaymentItem } from '../payment-item';
 import { IyzipayResource } from './iyzipay-resource';
 
 export class PaymentResource extends IyzipayResource {
-  private price: OptionalType<string>;
-  private paidPrice: OptionalType<string>;
-  private installment: OptionalType<number>;
-  private currency: OptionalType<string>;
-  private paymentId: OptionalType<string>;
-  private paymentStatus: OptionalType<string>;
-  private fraudStatus: OptionalType<number>;
-  private merchantCommissionRate: OptionalType<number>;
-  private merchantCommissionRateAmount: OptionalType<number>;
-  private iyziCommissionRateAmount: OptionalType<number>;
-  private iyziCommissionFee: OptionalType<number>;
-  private cardType: OptionalType<string>;
-  private cardAssociation: OptionalType<string>;
-  private cardFamily: OptionalType<string>;
-  private cardToken: OptionalType<string>;
-  private cardUserKey: OptionalType<string>;
-  private binNumber: OptionalType<string>;
-  private basketId: OptionalType<string>;
-  private paymentItems?: PaymentItem[];
-  private connectorName: OptionalType<string>;
-  private authCode: OptionalType<string>;
-  private phase: OptionalType<string>;
-  private lastFourDigits: OptionalType<string>;
-  private posOrderId: OptionalType<string>;
+  private price: OptionalType<string> = null;
+  private paidPrice: OptionalType<string> = null;
+  private installment: OptionalType<number> = null;
+  private currency: OptionalType<string> = null;
+  private paymentId: OptionalType<string> = null;
+  private paymentStatus: OptionalType<string> = null;
+  private fraudStatus: OptionalType<number> = null;
+  private merchantCommissionRate: OptionalType<number> = null;
+  private merchantCommissionRateAmount: OptionalType<number> = null;
+  private iyziCommissionRateAmount: OptionalType<number> = null;
+  private iyziCommissionFee: OptionalType<number> = null;
+  private cardType: OptionalType<string> = null;
+  private cardAssociation: OptionalType<string> = null;
+  private cardFamily: OptionalType<string> = null;
+  private cardToken: OptionalType<string> = null;
+  private cardUserKey: OptionalType<string> = null;
+  private binNumber: OptionalType<string> = null;
+  private basketId: OptionalType<string> = null;
+  private paymentItems: OptionalType<PaymentItem[]> = null;
+  private connectorName: OptionalType<string> = null;
+  private authCode: OptionalType<string> = null;
+  private phase: OptionalType<string> = null;
+  private lastFourDigits: OptionalType<string> = null;
+  private posOrderId: OptionalType<string> = null;
 
   public getPrice(): OptionalType<string> {
     return this.price;
@@ -178,12 +178,12 @@ export class PaymentResource extends IyzipayResource {
     this.basketId = basketId;
   }
 
-  public getPaymentItems(): PaymentItem[] | undefined {
+  public getPaymentItems(): OptionalType<PaymentItem[]> {
     return this.paymentItems;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public setPaymentItems(paymentItems?: PaymentItem[]): void {
+  public setPaymentItems(paymentItems: OptionalType<PaymentItem[]>): void {
     this.paymentItems = paymentItems;
   }
 
