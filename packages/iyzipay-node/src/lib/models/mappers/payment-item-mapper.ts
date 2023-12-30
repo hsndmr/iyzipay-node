@@ -69,7 +69,11 @@ export class PaymentItemMapper {
     return paymentItems;
   }
 
-  private mapConvertedPayout(payout: ResponseData) {
+  private mapConvertedPayout(payout: OptionalType<ResponseData>) {
+    if (payout === null) {
+      return null;
+    }
+
     const responseDataManager = new ResponseDataManager(payout);
 
     const convertedPayout = new ConvertedPayout();
