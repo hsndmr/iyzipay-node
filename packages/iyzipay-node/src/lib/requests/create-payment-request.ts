@@ -7,168 +7,171 @@ import { BasketItem } from '../models/basket-item';
 import { FlexibleData } from '../flexible-data.interface';
 import { RequestDataBuilder } from '../request-data-builder';
 import { Currency, PaymentChannel, PaymentGroup } from '../models';
+import { OptionalType } from '../types';
 
 export class CreatePaymentRequest extends Request {
-  private price: string;
-  private paidPrice: string;
-  private installment: number;
-  private paymentChannel: PaymentChannel;
-  private basketId: string;
-  private paymentGroup: PaymentGroup;
-  private reward: string;
-  private paymentCard: PaymentCard;
-  private buyer: Buyer;
-  private shippingAddress: Address;
-  private billingAddress: Address;
-  private basketItems: BasketItem[];
-  private paymentSource: string;
-  private currency: Currency;
-  private posOrderId: string;
-  private connectorName: string;
-  private plusInstallmentUsage: boolean;
-  private callbackUrl: string;
+  private price: OptionalType<string> = null;
+  private paidPrice: OptionalType<string> = null;
+  private installment: OptionalType<number>;
+  private paymentChannel: OptionalType<PaymentChannel> = null;
+  private basketId: OptionalType<string> = null;
+  private paymentGroup: OptionalType<PaymentGroup> = null;
+  private reward: OptionalType<string> = null;
+  private paymentCard: OptionalType<PaymentCard> = null;
+  private buyer: OptionalType<Buyer> = null;
+  private shippingAddress: OptionalType<Address> = null;
+  private billingAddress: OptionalType<Address> = null;
+  private basketItems: OptionalType<BasketItem[]> = null;
+  private paymentSource: OptionalType<string> = null;
+  private currency: OptionalType<Currency> = null;
+  private posOrderId: OptionalType<string> = null;
+  private connectorName: OptionalType<string> = null;
+  private plusInstallmentUsage: OptionalType<boolean> = null;
+  private callbackUrl: OptionalType<string> = null;
 
-  public getPrice(): string {
+  public getPrice(): OptionalType<string> {
     return this.price;
   }
 
-  public setPrice(price: string): void {
+  public setPrice(price: OptionalType<string>): void {
     this.price = price;
   }
 
-  public getPaidPrice(): string {
+  public getPaidPrice(): OptionalType<string> {
     return this.paidPrice;
   }
 
-  public setPaidPrice(paidPrice: string): void {
+  public setPaidPrice(paidPrice: OptionalType<string>): void {
     this.paidPrice = paidPrice;
   }
 
-  public getInstallment(): number {
+  public getInstallment(): OptionalType<number> {
     return this.installment;
   }
 
-  public setInstallment(installment: number): void {
+  public setInstallment(installment: OptionalType<number>): void {
     this.installment = installment;
   }
 
-  public getPaymentChannel(): string {
+  public getPaymentChannel(): OptionalType<PaymentChannel> {
     return this.paymentChannel;
   }
 
-  public setPaymentChannel(paymentChannel: PaymentChannel): void {
+  public setPaymentChannel(paymentChannel: OptionalType<PaymentChannel>): void {
     this.paymentChannel = paymentChannel;
   }
 
-  public getBasketId(): string {
+  public getBasketId(): OptionalType<string> {
     return this.basketId;
   }
 
-  public setBasketId(basketId: string): void {
+  public setBasketId(basketId: OptionalType<string>): void {
     this.basketId = basketId;
   }
 
-  public getPaymentGroup(): string {
+  public getPaymentGroup(): OptionalType<PaymentGroup> {
     return this.paymentGroup;
   }
 
-  public setPaymentGroup(paymentGroup: PaymentGroup): void {
+  public setPaymentGroup(paymentGroup: OptionalType<PaymentGroup>): void {
     this.paymentGroup = paymentGroup;
   }
 
-  public getReward(): string {
+  public getReward(): OptionalType<string> {
     return this.reward;
   }
 
-  public setReward(reward: string): void {
+  public setReward(reward: OptionalType<string>): void {
     this.reward = reward;
   }
 
-  public getPaymentCard(): PaymentCard {
+  public getPaymentCard(): OptionalType<PaymentCard> {
     return this.paymentCard;
   }
 
-  public setPaymentCard(paymentCard: PaymentCard): void {
+  public setPaymentCard(paymentCard: OptionalType<PaymentCard>): void {
     this.paymentCard = paymentCard;
   }
 
-  public getBuyer(): Buyer {
+  public getBuyer(): OptionalType<Buyer> {
     return this.buyer;
   }
 
-  public setBuyer(buyer: Buyer): void {
+  public setBuyer(buyer: OptionalType<Buyer>): void {
     this.buyer = buyer;
   }
 
-  public getShippingAddress(): Address {
+  public getShippingAddress(): OptionalType<Address> {
     return this.shippingAddress;
   }
 
-  public setShippingAddress(shippingAddress: Address): void {
+  public setShippingAddress(shippingAddress: OptionalType<Address>): void {
     this.shippingAddress = shippingAddress;
   }
 
-  public getBillingAddress(): Address {
+  public getBillingAddress(): OptionalType<Address> {
     return this.billingAddress;
   }
 
-  public setBillingAddress(billingAddress: Address): void {
+  public setBillingAddress(billingAddress: OptionalType<Address>): void {
     this.billingAddress = billingAddress;
   }
 
-  public getBasketItems(): BasketItem[] {
+  public getBasketItems(): OptionalType<BasketItem> {
     return this.basketItems;
   }
 
-  public setBasketItems(basketItems: BasketItem[]): void {
+  public setBasketItems(basketItems: OptionalType<BasketItem>): void {
     this.basketItems = basketItems;
   }
 
-  public getPaymentSource(): string {
+  public getPaymentSource(): OptionalType<string> {
     return this.paymentSource;
   }
 
-  public setPaymentSource(paymentSource: string): void {
+  public setPaymentSource(paymentSource: OptionalType<string>): void {
     this.paymentSource = paymentSource;
   }
 
-  public getCurrency(): Currency {
+  public getCurrency(): OptionalType<Currency> {
     return this.currency;
   }
 
-  public setCurrency(currency: Currency): void {
+  public setCurrency(currency: OptionalType<Currency>): void {
     this.currency = currency;
   }
 
-  public getPosOrderId(): string {
+  public getPosOrderId(): OptionalType<string> {
     return this.posOrderId;
   }
 
-  public setPosOrderId(posOrderId: string): void {
+  public setPosOrderId(posOrderId: OptionalType<string>): void {
     this.posOrderId = posOrderId;
   }
 
-  public getConnectorName(): string {
+  public getConnectorName(): OptionalType<string> {
     return this.connectorName;
   }
 
-  public setConnectorName(connectorName: string): void {
+  public setConnectorName(connectorName: OptionalType<string>): void {
     this.connectorName = connectorName;
   }
 
-  public getPlusInstallmentUsage(): boolean {
+  public getPlusInstallmentUsage(): OptionalType<boolean> {
     return this.plusInstallmentUsage;
   }
 
-  public setPlusInstallmentUsage(plusInstallmentUsage: boolean): void {
+  public setPlusInstallmentUsage(
+    plusInstallmentUsage: OptionalType<boolean>
+  ): void {
     this.plusInstallmentUsage = plusInstallmentUsage;
   }
 
-  public getCallbackUrl(): string {
+  public getCallbackUrl(): OptionalType<string> {
     return this.callbackUrl;
   }
 
-  public setCallbackUrl(callbackUrl: string): void {
+  public setCallbackUrl(callbackUrl: OptionalType<string>): void {
     this.callbackUrl = callbackUrl;
   }
 
@@ -196,10 +199,7 @@ export class CreatePaymentRequest extends Request {
         'billingAddress',
         this.billingAddress ? this.billingAddress.getRequestData() : null
       )
-      .addArray(
-        'basketItems',
-        this.basketItems?.length > 0 ? this.basketItems : null
-      )
+      .addArray('basketItems', this.basketItems ? this.basketItems : [])
       .add('paymentSource', this.paymentSource)
       .add('currency', this.currency)
       .add('posOrderId', this.posOrderId)
@@ -209,7 +209,7 @@ export class CreatePaymentRequest extends Request {
       .get();
   }
 
-  public toPKIRequestString(): string {
+  public toPKIRequestString(): OptionalType<string> {
     return RequestStringBuilder.create()
       .appendSuper(super.toPKIRequestString())
       .appendPrice('price', this.price)
