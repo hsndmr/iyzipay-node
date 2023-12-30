@@ -1,4 +1,5 @@
 import { OptionalType } from '../../types';
+import { Currency } from '../enums';
 import { PaymentItem } from '../payment-item';
 import { IyzipayResource } from './iyzipay-resource';
 
@@ -6,7 +7,7 @@ export class PaymentResource extends IyzipayResource {
   private price: OptionalType<string> = null;
   private paidPrice: OptionalType<string> = null;
   private installment: OptionalType<number> = null;
-  private currency: OptionalType<string> = null;
+  private currency: OptionalType<Currency> = null;
   private paymentId: OptionalType<string> = null;
   private paymentStatus: OptionalType<string> = null;
   private fraudStatus: OptionalType<number> = null;
@@ -52,11 +53,11 @@ export class PaymentResource extends IyzipayResource {
     this.installment = installment;
   }
 
-  public getCurrency(): OptionalType<string> {
+  public getCurrency(): OptionalType<Currency> {
     return this.currency;
   }
 
-  public setCurrency(currency: OptionalType<string>): void {
+  public setCurrency(currency: OptionalType<Currency>): void {
     this.currency = currency;
   }
 
