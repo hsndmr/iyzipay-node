@@ -36,10 +36,8 @@ export class RequestDataBuilder {
       : (value as FlexibleData);
   }
 
-  public addArray(key: string, array: RequestValue[] = null): this {
-    if (isNotNullOrUndefined(array)) {
-      this.data[key] = array.map((value) => this.processData(value));
-    }
+  public addArray(key: string, array: RequestValue[]): this {
+    this.data[key] = array.map((value) => this.processData(value));
 
     return this;
   }

@@ -65,4 +65,14 @@ describe('RequestDataBuilder', () => {
       arrayKey: ['value1', 'value2', { key: 'value' }],
     });
   });
+
+  it('should add empty array', () => {
+    // Arrange
+    const builder = RequestDataBuilder.create().addArray('arrayKey', []);
+
+    // Act && Assert
+    expect(builder.get()).toEqual({
+      arrayKey: [],
+    });
+  });
 });
