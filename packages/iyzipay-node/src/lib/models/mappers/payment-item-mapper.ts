@@ -1,11 +1,12 @@
 import { ResponseData, ResponseDataManager } from '../../response-data-manager';
+import { OptionalType } from '../../types';
 import { ConvertedPayout } from '../converted-payout';
 import { PaymentItem } from '../payment-item';
 
 export class PaymentItemMapper {
-  public mapPaymentItems(itemTransactions?: ResponseData[]) {
-    if (itemTransactions === undefined) {
-      return undefined;
+  public mapPaymentItems(itemTransactions: OptionalType<ResponseData[]>) {
+    if (itemTransactions === null) {
+      return null;
     }
 
     const paymentItems: PaymentItem[] = [];
