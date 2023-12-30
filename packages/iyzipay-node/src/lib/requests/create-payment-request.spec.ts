@@ -96,7 +96,7 @@ describe('CreatePaymentRequest', () => {
   });
 
   it('should return request data correctly', () => {
-    // Assert
+    // Arrange && Act && Assert
     expect(request.getRequestData()).toEqual({
       locale: 'tr',
       conversationId: '123456789',
