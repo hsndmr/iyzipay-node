@@ -14,7 +14,7 @@ export class PaymentItem {
   private blockageRate: OptionalType<number> = null;
   private blockageRateAmountMerchant: OptionalType<number> = null;
   private blockageRateAmountSubMerchant: OptionalType<number> = null;
-  private blockageResolvedDate: OptionalType<Date> = null;
+  private blockageResolvedDate: OptionalType<string> = null;
   private subMerchantKey: OptionalType<string> = null;
   private subMerchantPrice: OptionalType<number> = null;
   private subMerchantPayoutRate: OptionalType<number> = null;
@@ -128,11 +128,11 @@ export class PaymentItem {
     this.blockageRateAmountSubMerchant = blockageRateAmountSubMerchant;
   }
 
-  getBlockageResolvedDate(): OptionalType<Date> {
+  getBlockageResolvedDate(): OptionalType<string> {
     return this.blockageResolvedDate;
   }
 
-  setBlockageResolvedDate(blockageResolvedDate: OptionalType<Date>): void {
+  setBlockageResolvedDate(blockageResolvedDate: OptionalType<string>): void {
     this.blockageResolvedDate = blockageResolvedDate;
   }
 
