@@ -1,8 +1,7 @@
 import { IyzipayHttpClient } from '../iyzipay-http-client';
-import { CreatePaymentRequest } from '../requests';
+import { CreatePaymentRequest, RetrievePaymentRequest } from '../requests';
 import { PaymentMapper } from './mappers/payment-mapper';
 import { PaymentResource } from './resources/payment-resource';
-import { RetrievePaymentRequest } from '../requests';
 
 export class Payment extends PaymentResource {
   public static async create(
