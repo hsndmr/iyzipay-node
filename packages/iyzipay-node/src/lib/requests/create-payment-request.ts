@@ -176,7 +176,7 @@ export class CreatePaymentRequest extends Request {
   }
 
   public getRequestData(): FlexibleData {
-    return RequestDataBuilder.create()
+    return RequestDataBuilder.fromObject(super.getRequestData())
       .add('locale', this.getLocale())
       .add('conversationId', this.getConversationId())
       .addPrice('price', this.price)
